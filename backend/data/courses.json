@@ -1,0 +1,28 @@
+{
+  "courses": [
+    { "course_code": "BTECH", "name_key": "course.BTECH", "level": "undergraduate", "typical_duration_months": 48 },
+    { "course_code": "MTECH", "name_key": "course.MTECH", "level": "postgraduate", "typical_duration_months": 24 },
+    { "course_code": "MBBS", "name_key": "course.MBBS", "level": "undergraduate", "typical_duration_months": 66 },
+    { "course_code": "BDS", "name_key": "course.BDS", "level": "undergraduate", "typical_duration_months": 60 },
+    { "course_code": "BSC_NURSING", "name_key": "course.BSC_NURSING", "level": "undergraduate", "typical_duration_months": 48 },
+    { "course_code": "PHARMACY_BPHARM", "name_key": "course.PHARMACY_BPHARM", "level": "undergraduate", "typical_duration_months": 48 },
+    { "course_code": "DIPLOMA_ENGINEERING", "name_key": "course.DIPLOMA_ENGINEERING", "level": "diploma", "typical_duration_months": 36 },
+    { "course_code": "ITI_TRADE", "name_key": "course.ITI_TRADE", "level": "diploma", "typical_duration_months": 24 },
+    { "course_code": "POLYTECHNIC", "name_key": "course.POLYTECHNIC", "level": "diploma", "typical_duration_months": 36 },
+    { "course_code": "BCOM", "name_key": "course.BCOM", "level": "undergraduate", "typical_duration_months": 36 },
+    { "course_code": "MCOM", "name_key": "course.MCOM", "level": "postgraduate", "typical_duration_months": 24 },
+    { "course_code": "BA", "name_key": "course.BA", "level": "undergraduate", "typical_duration_months": 36 },
+    { "course_code": "MA", "name_key": "course.MA", "level": "postgraduate", "typical_duration_months": 24 },
+    { "course_code": "BCA", "name_key": "course.BCA", "level": "undergraduate", "typical_duration_months": 36 },
+    { "course_code": "MCA", "name_key": "course.MCA", "level": "postgraduate", "typical_duration_months": 24 },
+    { "course_code": "LLB", "name_key": "course.LLB", "level": "undergraduate", "typical_duration_months": 36 },
+    { "course_code": "LLM", "name_key": "course.LLM", "level": "postgraduate", "typical_duration_months": 24 },
+    { "course_code": "BED", "name_key": "course.BED", "level": "undergraduate", "typical_duration_months": 24 },
+    { "course_code": "MED", "name_key": "course.MED", "level": "postgraduate", "typical_duration_months": 24 },
+    { "course_code": "HOTEL_MANAGEMENT", "name_key": "course.HOTEL_MANAGEMENT", "level": "undergraduate", "typical_duration_months": 48 },
+    { "course_code": "AGRICULTURE_BSC", "name_key": "course.AGRICULTURE_BSC", "level": "undergraduate", "typical_duration_months": 48 },
+    { "course_code": "VETERINARY_SCIENCE", "name_key": "course.VETERINARY_SCIENCE", "level": "undergraduate", "typical_duration_months": 60 },
+    { "course_code": "PARAMEDICAL_DIPLOMA", "name_key": "course.PARAMEDICAL_DIPLOMA", "level": "diploma", "typical_duration_months": 24 },
+    { "course_code": "MBA", "name_key": "course.MBA", "level": "postgraduate", "typical_duration_months": 24 }
+  ]
+}

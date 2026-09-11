@@ -1,0 +1,2461 @@
+{
+  "G1_G2_tailoring": {
+    "endpoint": "POST /api/v1/recommend",
+    "request": {
+      "locale": "en",
+      "profile": {
+        "is_sc": true,
+        "annual_family_income": 240000,
+        "purpose": "business",
+        "activity_code": "TAILORING",
+        "project_cost": 120000
+      }
+    },
+    "response": {
+      "request_id": "req_FIXTURE",
+      "ruleset_version": "2026.09.10",
+      "eligible": true,
+      "blockers": [],
+      "options": [
+        {
+          "option_id": "NSFDC_MFS",
+          "rank": 1,
+          "scheme_id": "NSFDC_MFS",
+          "scheme_name_key": "scheme.NSFDC_MFS.name",
+          "channel_variant_key": null,
+          "channel_types": [
+            "SCA",
+            "PSB",
+            "RRB"
+          ],
+          "project_cost": 120000,
+          "sanctionable_amount": 108000,
+          "own_contribution_required": 12000,
+          "financing_pct": 90,
+          "interest_rate": 6.5,
+          "instalment_frequency": "quarterly",
+          "total_period_months": 36,
+          "moratorium_months": 3,
+          "number_of_instalments": 11,
+          "principal_at_repayment_start": 109755,
+          "instalment": 10977,
+          "monthly_equivalent": 3659,
+          "total_outgo": 120747,
+          "total_interest": 12747,
+          "indicative": true,
+          "data_tier": "VERIFIED",
+          "reasons": [
+            {
+              "code": "COST_WITHIN_MFS_CAP",
+              "params": {
+                "cap": 140000
+              }
+            },
+            {
+              "code": "INCOME_WITHIN_CEILING",
+              "params": {
+                "ceiling": 500000
+              }
+            },
+            {
+              "code": "LOWEST_COST_OPTION",
+              "params": {}
+            }
+          ],
+          "caveats": [
+            {
+              "code": "SANCTION_AT_PARTNER_DISCRETION",
+              "params": {}
+            },
+            {
+              "code": "MORATORIUM_TREATMENT_ASSUMED",
+              "params": {
+                "treatment": "capitalise"
+              }
+            }
+          ],
+          "citations": [
+            {
+              "field": "project_cost_max",
+              "value": "Project cost up to ₹1.40 lakh",
+              "source_url": "https://nsfdc.nic.in/scheme",
+              "as_of": "2026-09-09"
+            },
+            {
+              "field": "financing_pct",
+              "value": "90% of project cost",
+              "source_url": "https://nsfdc.nic.in/scheme",
+              "as_of": "2026-09-09"
+            },
+            {
+              "field": "loan_max",
+              "value": "Loan max ₹1.25 lakh",
+              "source_url": "https://nsfdc.nic.in/scheme",
+              "as_of": "2026-09-09"
+            },
+            {
+              "field": "interest_rate",
+              "value": "6.5% to beneficiary",
+              "source_url": "https://nsfdc.nic.in/scheme",
+              "as_of": "2026-09-09"
+            },
+            {
+              "field": "total_period_months",
+              "value": "3 years including moratorium",
+              "source_url": "https://nsfdc.nic.in/scheme",
+              "as_of": "2026-09-09"
+            },
+            {
+              "field": "moratorium_months",
+              "value": "3-month moratorium",
+              "source_url": "https://nsfdc.nic.in/scheme",
+              "as_of": "2026-09-09"
+            }
+          ]
+        },
+        {
+          "option_id": "NSFDC_AMY",
+          "rank": 2,
+          "scheme_id": "NSFDC_AMY",
+          "scheme_name_key": "scheme.NSFDC_AMY.name",
+          "channel_variant_key": null,
+          "channel_types": [
+            "NBFC_MFI"
+          ],
+          "project_cost": 120000,
+          "sanctionable_amount": 108000,
+          "own_contribution_required": 12000,
+          "financing_pct": 90,
+          "interest_rate": 15.0,
+          "instalment_frequency": "quarterly",
+          "total_period_months": 36,
+          "moratorium_months": 3,
+          "number_of_instalments": 11,
+          "principal_at_repayment_start": 112050,
+          "instalment": 12619,
+          "monthly_equivalent": 4206,
+          "total_outgo": 138809,
+          "total_interest": 30809,
+          "indicative": true,
+          "data_tier": "VERIFIED",
+          "reasons": [
+            {
+              "code": "ELIGIBLE_BUT_COSTLIER",
+              "params": {
+                "delta": 18062
+              }
+            }
+          ],
+          "caveats": [
+            {
+              "code": "SANCTION_AT_PARTNER_DISCRETION",
+              "params": {}
+            },
+            {
+              "code": "MORATORIUM_TREATMENT_ASSUMED",
+              "params": {
+                "treatment": "capitalise"
+              }
+            }
+          ],
+          "citations": [
+            {
+              "field": "project_cost_max",
+              "value": "Project cost up to ₹1.40 lakh",
+              "source_url": "https://nsfdc.nic.in/scheme",
+              "as_of": "2026-09-09"
+            },
+            {
+              "field": "financing_pct",
+              "value": "90% of project cost",
+              "source_url": "https://nsfdc.nic.in/scheme",
+              "as_of": "2026-09-09"
+            },
+            {
+              "field": "loan_max",
+              "value": "Loan max ₹1.25 lakh",
+              "source_url": "https://nsfdc.nic.in/scheme",
+              "as_of": "2026-09-09"
+            },
+            {
+              "field": "interest_rate",
+              "value": "15% charged by NBFC-MFIs to beneficiaries",
+              "source_url": "https://nsfdc.nic.in/scheme",
+              "as_of": "2026-09-09"
+            },
+            {
+              "field": "total_period_months",
+              "value": "3 years including moratorium",
+              "source_url": "https://nsfdc.nic.in/scheme",
+              "as_of": "2026-09-09"
+            },
+            {
+              "field": "moratorium_months",
+              "value": "3-month moratorium",
+              "source_url": "https://nsfdc.nic.in/scheme",
+              "as_of": "2026-09-09"
+            }
+          ]
+        },
+        {
+          "option_id": "NSFDC_UNY.COOP",
+          "rank": 3,
+          "scheme_id": "NSFDC_UNY",
+          "scheme_name_key": "scheme.NSFDC_UNY.name",
+          "channel_variant_key": "channel.coop",
+          "channel_types": [
+            "COOP_BANK",
+            "COOP_SOCIETY"
+          ],
+          "project_cost": 120000,
+          "sanctionable_amount": 108000,
+          "own_contribution_required": 12000,
+          "financing_pct": 90,
+          "interest_rate": 13.0,
+          "instalment_frequency": "quarterly",
+          "total_period_months": 60,
+          "moratorium_months": 3,
+          "number_of_instalments": 19,
+          "principal_at_repayment_start": 111510,
+          "instalment": 7958,
+          "monthly_equivalent": 2653,
+          "total_outgo": 151202,
+          "total_interest": 43202,
+          "indicative": true,
+          "data_tier": "VERIFIED",
+          "reasons": [
+            {
+              "code": "ELIGIBLE_BUT_COSTLIER",
+              "params": {
+                "delta": 30455
+              }
+            }
+          ],
+          "caveats": [
+            {
+              "code": "SANCTION_AT_PARTNER_DISCRETION",
+              "params": {}
+            },
+            {
+              "code": "MORATORIUM_TREATMENT_ASSUMED",
+              "params": {
+                "treatment": "capitalise"
+              }
+            }
+          ],
+          "citations": [
+            {
+              "field": "project_cost_max",
+              "value": "Project cost up to ₹5.00 lakh",
+              "source_url": "https://nsfdc.nic.in/scheme",
+              "as_of": "2026-09-09"
+            },
+            {
+              "field": "financing_pct",
+              "value": "90% of project cost",
+              "source_url": "https://nsfdc.nic.in/scheme",
+              "as_of": "2026-09-09"
+            },
+            {
+              "field": "loan_max",
+              "value": "Loan max ₹4.50 lakh",
+              "source_url": "https://nsfdc.nic.in/scheme",
+              "as_of": "2026-09-09"
+            },
+            {
+              "field": "total_period_months",
+              "value": "5 years including moratorium",
+              "source_url": "https://nsfdc.nic.in/scheme",
+              "as_of": "2026-09-09"
+            },
+            {
+              "field": "moratorium_months",
+              "value": "3-month moratorium",
+              "source_url": "https://nsfdc.nic.in/scheme",
+              "as_of": "2026-09-09"
+            },
+            {
+              "field": "interest_rate",
+              "value": "13% via co-operative banks/societies",
+              "source_url": "https://nsfdc.nic.in/scheme",
+              "as_of": "2026-09-09"
+            }
+          ]
+        },
+        {
+          "option_id": "NSFDC_UNY.SFB",
+          "rank": 4,
+          "scheme_id": "NSFDC_UNY",
+          "scheme_name_key": "scheme.NSFDC_UNY.name",
+          "channel_variant_key": "channel.sfb",
+          "channel_types": [
+            "SFB"
+          ],
+          "project_cost": 120000,
+          "sanctionable_amount": 108000,
+          "own_contribution_required": 12000,
+          "financing_pct": 90,
+          "interest_rate": 15.0,
+          "instalment_frequency": "quarterly",
+          "total_period_months": 60,
+          "moratorium_months": 3,
+          "number_of_instalments": 19,
+          "principal_at_repayment_start": 112050,
+          "instalment": 8351,
+          "monthly_equivalent": 2784,
+          "total_outgo": 158669,
+          "total_interest": 50669,
+          "indicative": true,
+          "data_tier": "VERIFIED",
+          "reasons": [
+            {
+              "code": "ELIGIBLE_BUT_COSTLIER",
+              "params": {
+                "delta": 37922
+              }
+            }
+          ],
+          "caveats": [
+            {
+              "code": "SANCTION_AT_PARTNER_DISCRETION",
+              "params": {}
+            },
+            {
+              "code": "MORATORIUM_TREATMENT_ASSUMED",
+              "params": {
+                "treatment": "capitalise"
+              }
+            }
+          ],
+          "citations": [
+            {
+              "field": "project_cost_max",
+              "value": "Project cost up to ₹5.00 lakh",
+              "source_url": "https://nsfdc.nic.in/scheme",
+              "as_of": "2026-09-09"
+            },
+            {
+              "field": "financing_pct",
+              "value": "90% of project cost",
+              "source_url": "https://nsfdc.nic.in/scheme",
+              "as_of": "2026-09-09"
+            },
+            {
+              "field": "loan_max",
+              "value": "Loan max ₹4.50 lakh",
+              "source_url": "https://nsfdc.nic.in/scheme",
+              "as_of": "2026-09-09"
+            },
+            {
+              "field": "total_period_months",
+              "value": "5 years including moratorium",
+              "source_url": "https://nsfdc.nic.in/scheme",
+              "as_of": "2026-09-09"
+            },
+            {
+              "field": "moratorium_months",
+              "value": "3-month moratorium",
+              "source_url": "https://nsfdc.nic.in/scheme",
+              "as_of": "2026-09-09"
+            },
+            {
+              "field": "interest_rate",
+              "value": "15% via small finance banks",
+              "source_url": "https://nsfdc.nic.in/scheme",
+              "as_of": "2026-09-09"
+            }
+          ]
+        }
+      ],
+      "comparison": {
+        "cheapest_option_id": "NSFDC_MFS",
+        "costliest_option_id": "NSFDC_UNY.SFB",
+        "extra_cost_if_worst_route": 37922,
+        "message_key": "comparison.route_matters"
+      },
+      "remediation": [],
+      "documents_required": [
+        {
+          "code": "CASTE_CERT",
+          "mandatory": true
+        },
+        {
+          "code": "INCOME_CERT",
+          "mandatory": true
+        },
+        {
+          "code": "AADHAAR",
+          "mandatory": true
+        },
+        {
+          "code": "BANK_PASSBOOK",
+          "mandatory": true
+        },
+        {
+          "code": "PROJECT_QUOTATION",
+          "mandatory": true
+        },
+        {
+          "code": "PHOTO",
+          "mandatory": true
+        }
+      ],
+      "next_step": {
+        "key": "next_step.visit_partner",
+        "external_portal": "https://pmsuraj.dosje.gov.in/"
+      }
+    }
+  },
+  "G4_G5_dairy": {
+    "endpoint": "POST /api/v1/recommend",
+    "request": {
+      "locale": "en",
+      "profile": {
+        "is_sc": true,
+        "annual_family_income": 240000,
+        "purpose": "business",
+        "activity_code": "DAIRY_FARMING",
+        "project_cost": 400000
+      }
+    },
+    "response": {
+      "request_id": "req_FIXTURE",
+      "ruleset_version": "2026.09.10",
+      "eligible": true,
+      "blockers": [],
+      "options": [
+        {
+          "option_id": "NSFDC_TL",
+          "rank": 1,
+          "scheme_id": "NSFDC_TL",
+          "scheme_name_key": "scheme.NSFDC_TL.name",
+          "channel_variant_key": null,
+          "channel_types": [
+            "SCA",
+            "PSB",
+            "RRB"
+          ],
+          "project_cost": 400000,
+          "sanctionable_amount": 360000,
+          "own_contribution_required": 40000,
+          "financing_pct": 90,
+          "interest_rate": 8.0,
+          "instalment_frequency": "quarterly",
+          "total_period_months": 84,
+          "moratorium_months": 6,
+          "number_of_instalments": 26,
+          "principal_at_repayment_start": 374400,
+          "instalment": 18607,
+          "monthly_equivalent": 6202,
+          "total_outgo": 483782,
+          "total_interest": 123782,
+          "indicative": true,
+          "data_tier": "VERIFIED",
+          "reasons": [
+            {
+              "code": "COST_REQUIRES_TERM_LOAN",
+              "params": {
+                "cap": 140000
+              }
+            },
+            {
+              "code": "INCOME_WITHIN_CEILING",
+              "params": {
+                "ceiling": 500000
+              }
+            },
+            {
+              "code": "LOWEST_COST_OPTION",
+              "params": {}
+            }
+          ],
+          "caveats": [
+            {
+              "code": "SANCTION_AT_PARTNER_DISCRETION",
+              "params": {}
+            },
+            {
+              "code": "MORATORIUM_TREATMENT_ASSUMED",
+              "params": {
+                "treatment": "capitalise"
+              }
+            }
+          ],
+          "citations": [
+            {
+              "field": "project_cost_min",
+              "value": "Project cost above ₹1.40 lakh",
+              "source_url": "https://nsfdc.nic.in/scheme",
+              "as_of": "2026-09-09"
+            },
+            {
+              "field": "project_cost_max",
+              "value": "Project cost up to ₹50 lakh",
+              "source_url": "https://nsfdc.nic.in/scheme",
+              "as_of": "2026-09-09"
+            },
+            {
+              "field": "financing_pct",
+              "value": "90% of project cost",
+              "source_url": "https://nsfdc.nic.in/scheme",
+              "as_of": "2026-09-09"
+            },
+            {
+              "field": "loan_max",
+              "value": "Loan above ₹1.25 lakh up to ₹45 lakh",
+              "source_url": "https://nsfdc.nic.in/scheme",
+              "as_of": "2026-09-09"
+            },
+            {
+              "field": "interest_rate",
+              "value": "8% to beneficiary",
+              "source_url": "https://nsfdc.nic.in/scheme",
+              "as_of": "2026-09-09"
+            },
+            {
+              "field": "total_period_months",
+              "value": "7 years including moratorium",
+              "source_url": "https://nsfdc.nic.in/scheme",
+              "as_of": "2026-09-09"
+            },
+            {
+              "field": "moratorium_months",
+              "value": "6-month moratorium; 12 months for plantation or construction activities",
+              "source_url": "https://nsfdc.nic.in/scheme",
+              "as_of": "2026-09-09"
+            }
+          ]
+        },
+        {
+          "option_id": "NSFDC_UNY.COOP",
+          "rank": 2,
+          "scheme_id": "NSFDC_UNY",
+          "scheme_name_key": "scheme.NSFDC_UNY.name",
+          "channel_variant_key": "channel.coop",
+          "channel_types": [
+            "COOP_BANK",
+            "COOP_SOCIETY"
+          ],
+          "project_cost": 400000,
+          "sanctionable_amount": 360000,
+          "own_contribution_required": 40000,
+          "financing_pct": 90,
+          "interest_rate": 13.0,
+          "instalment_frequency": "quarterly",
+          "total_period_months": 60,
+          "moratorium_months": 3,
+          "number_of_instalments": 19,
+          "principal_at_repayment_start": 371700,
+          "instalment": 26527,
+          "monthly_equivalent": 8842,
+          "total_outgo": 504013,
+          "total_interest": 144013,
+          "indicative": true,
+          "data_tier": "VERIFIED",
+          "reasons": [
+            {
+              "code": "ELIGIBLE_BUT_COSTLIER",
+              "params": {
+                "delta": 20231
+              }
+            }
+          ],
+          "caveats": [
+            {
+              "code": "SANCTION_AT_PARTNER_DISCRETION",
+              "params": {}
+            },
+            {
+              "code": "MORATORIUM_TREATMENT_ASSUMED",
+              "params": {
+                "treatment": "capitalise"
+              }
+            }
+          ],
+          "citations": [
+            {
+              "field": "project_cost_max",
+              "value": "Project cost up to ₹5.00 lakh",
+              "source_url": "https://nsfdc.nic.in/scheme",
+              "as_of": "2026-09-09"
+            },
+            {
+              "field": "financing_pct",
+              "value": "90% of project cost",
+              "source_url": "https://nsfdc.nic.in/scheme",
+              "as_of": "2026-09-09"
+            },
+            {
+              "field": "loan_max",
+              "value": "Loan max ₹4.50 lakh",
+              "source_url": "https://nsfdc.nic.in/scheme",
+              "as_of": "2026-09-09"
+            },
+            {
+              "field": "total_period_months",
+              "value": "5 years including moratorium",
+              "source_url": "https://nsfdc.nic.in/scheme",
+              "as_of": "2026-09-09"
+            },
+            {
+              "field": "moratorium_months",
+              "value": "3-month moratorium",
+              "source_url": "https://nsfdc.nic.in/scheme",
+              "as_of": "2026-09-09"
+            },
+            {
+              "field": "interest_rate",
+              "value": "13% via co-operative banks/societies",
+              "source_url": "https://nsfdc.nic.in/scheme",
+              "as_of": "2026-09-09"
+            }
+          ]
+        },
+        {
+          "option_id": "NSFDC_UNY.SFB",
+          "rank": 3,
+          "scheme_id": "NSFDC_UNY",
+          "scheme_name_key": "scheme.NSFDC_UNY.name",
+          "channel_variant_key": "channel.sfb",
+          "channel_types": [
+            "SFB"
+          ],
+          "project_cost": 400000,
+          "sanctionable_amount": 360000,
+          "own_contribution_required": 40000,
+          "financing_pct": 90,
+          "interest_rate": 15.0,
+          "instalment_frequency": "quarterly",
+          "total_period_months": 60,
+          "moratorium_months": 3,
+          "number_of_instalments": 19,
+          "principal_at_repayment_start": 373500,
+          "instalment": 27837,
+          "monthly_equivalent": 9279,
+          "total_outgo": 528903,
+          "total_interest": 168903,
+          "indicative": true,
+          "data_tier": "VERIFIED",
+          "reasons": [
+            {
+              "code": "ELIGIBLE_BUT_COSTLIER",
+              "params": {
+                "delta": 45121
+              }
+            }
+          ],
+          "caveats": [
+            {
+              "code": "SANCTION_AT_PARTNER_DISCRETION",
+              "params": {}
+            },
+            {
+              "code": "MORATORIUM_TREATMENT_ASSUMED",
+              "params": {
+                "treatment": "capitalise"
+              }
+            }
+          ],
+          "citations": [
+            {
+              "field": "project_cost_max",
+              "value": "Project cost up to ₹5.00 lakh",
+              "source_url": "https://nsfdc.nic.in/scheme",
+              "as_of": "2026-09-09"
+            },
+            {
+              "field": "financing_pct",
+              "value": "90% of project cost",
+              "source_url": "https://nsfdc.nic.in/scheme",
+              "as_of": "2026-09-09"
+            },
+            {
+              "field": "loan_max",
+              "value": "Loan max ₹4.50 lakh",
+              "source_url": "https://nsfdc.nic.in/scheme",
+              "as_of": "2026-09-09"
+            },
+            {
+              "field": "total_period_months",
+              "value": "5 years including moratorium",
+              "source_url": "https://nsfdc.nic.in/scheme",
+              "as_of": "2026-09-09"
+            },
+            {
+              "field": "moratorium_months",
+              "value": "3-month moratorium",
+              "source_url": "https://nsfdc.nic.in/scheme",
+              "as_of": "2026-09-09"
+            },
+            {
+              "field": "interest_rate",
+              "value": "15% via small finance banks",
+              "source_url": "https://nsfdc.nic.in/scheme",
+              "as_of": "2026-09-09"
+            }
+          ]
+        }
+      ],
+      "comparison": {
+        "cheapest_option_id": "NSFDC_TL",
+        "costliest_option_id": "NSFDC_UNY.SFB",
+        "extra_cost_if_worst_route": 45121,
+        "message_key": "comparison.route_matters"
+      },
+      "remediation": [],
+      "documents_required": [
+        {
+          "code": "CASTE_CERT",
+          "mandatory": true
+        },
+        {
+          "code": "INCOME_CERT",
+          "mandatory": true
+        },
+        {
+          "code": "AADHAAR",
+          "mandatory": true
+        },
+        {
+          "code": "BANK_PASSBOOK",
+          "mandatory": true
+        },
+        {
+          "code": "PROJECT_QUOTATION",
+          "mandatory": true
+        },
+        {
+          "code": "PHOTO",
+          "mandatory": true
+        }
+      ],
+      "next_step": {
+        "key": "next_step.visit_partner",
+        "external_portal": "https://pmsuraj.dosje.gov.in/"
+      }
+    }
+  },
+  "G3_calc": {
+    "endpoint": "POST /api/v1/calculate",
+    "request": {
+      "scheme_id": "NSFDC_TL",
+      "channel_variant": null,
+      "sanctioned_amount": 900000,
+      "total_period_months": 84,
+      "moratorium_months": 6,
+      "include_schedule": true
+    },
+    "response": {
+      "scheme_id": "NSFDC_TL",
+      "interest_rate": 8.0,
+      "instalment_frequency": "quarterly",
+      "sanctioned_amount": 900000,
+      "moratorium_months": 6,
+      "moratorium_treatment": "capitalise",
+      "principal_at_repayment_start": 936000,
+      "number_of_instalments": 26,
+      "instalment": 46518,
+      "monthly_equivalent": 15506,
+      "total_outgo": 1209468,
+      "total_interest": 309468,
+      "indicative": true,
+      "data_tier": "VERIFIED",
+      "schedule": [
+        {
+          "n": 1,
+          "due_month": 9,
+          "instalment": 46518,
+          "interest": 18720,
+          "principal": 27798,
+          "balance": 908202
+        },
+        {
+          "n": 2,
+          "due_month": 12,
+          "instalment": 46518,
+          "interest": 18164,
+          "principal": 28354,
+          "balance": 879848
+        },
+        {
+          "n": 3,
+          "due_month": 15,
+          "instalment": 46518,
+          "interest": 17597,
+          "principal": 28921,
+          "balance": 850927
+        },
+        {
+          "n": 4,
+          "due_month": 18,
+          "instalment": 46518,
+          "interest": 17019,
+          "principal": 29499,
+          "balance": 821428
+        },
+        {
+          "n": 5,
+          "due_month": 21,
+          "instalment": 46518,
+          "interest": 16429,
+          "principal": 30089,
+          "balance": 791339
+        },
+        {
+          "n": 6,
+          "due_month": 24,
+          "instalment": 46518,
+          "interest": 15827,
+          "principal": 30691,
+          "balance": 760648
+        },
+        {
+          "n": 7,
+          "due_month": 27,
+          "instalment": 46518,
+          "interest": 15213,
+          "principal": 31305,
+          "balance": 729343
+        },
+        {
+          "n": 8,
+          "due_month": 30,
+          "instalment": 46518,
+          "interest": 14587,
+          "principal": 31931,
+          "balance": 697412
+        },
+        {
+          "n": 9,
+          "due_month": 33,
+          "instalment": 46518,
+          "interest": 13948,
+          "principal": 32570,
+          "balance": 664842
+        },
+        {
+          "n": 10,
+          "due_month": 36,
+          "instalment": 46518,
+          "interest": 13297,
+          "principal": 33221,
+          "balance": 631621
+        },
+        {
+          "n": 11,
+          "due_month": 39,
+          "instalment": 46518,
+          "interest": 12632,
+          "principal": 33886,
+          "balance": 597735
+        },
+        {
+          "n": 12,
+          "due_month": 42,
+          "instalment": 46518,
+          "interest": 11955,
+          "principal": 34563,
+          "balance": 563172
+        },
+        {
+          "n": 13,
+          "due_month": 45,
+          "instalment": 46518,
+          "interest": 11263,
+          "principal": 35255,
+          "balance": 527917
+        },
+        {
+          "n": 14,
+          "due_month": 48,
+          "instalment": 46518,
+          "interest": 10558,
+          "principal": 35960,
+          "balance": 491957
+        },
+        {
+          "n": 15,
+          "due_month": 51,
+          "instalment": 46518,
+          "interest": 9839,
+          "principal": 36679,
+          "balance": 455278
+        },
+        {
+          "n": 16,
+          "due_month": 54,
+          "instalment": 46518,
+          "interest": 9106,
+          "principal": 37412,
+          "balance": 417866
+        },
+        {
+          "n": 17,
+          "due_month": 57,
+          "instalment": 46518,
+          "interest": 8357,
+          "principal": 38161,
+          "balance": 379705
+        },
+        {
+          "n": 18,
+          "due_month": 60,
+          "instalment": 46518,
+          "interest": 7594,
+          "principal": 38924,
+          "balance": 340781
+        },
+        {
+          "n": 19,
+          "due_month": 63,
+          "instalment": 46518,
+          "interest": 6816,
+          "principal": 39702,
+          "balance": 301079
+        },
+        {
+          "n": 20,
+          "due_month": 66,
+          "instalment": 46518,
+          "interest": 6022,
+          "principal": 40496,
+          "balance": 260583
+        },
+        {
+          "n": 21,
+          "due_month": 69,
+          "instalment": 46518,
+          "interest": 5212,
+          "principal": 41306,
+          "balance": 219277
+        },
+        {
+          "n": 22,
+          "due_month": 72,
+          "instalment": 46518,
+          "interest": 4386,
+          "principal": 42132,
+          "balance": 177145
+        },
+        {
+          "n": 23,
+          "due_month": 75,
+          "instalment": 46518,
+          "interest": 3543,
+          "principal": 42975,
+          "balance": 134170
+        },
+        {
+          "n": 24,
+          "due_month": 78,
+          "instalment": 46518,
+          "interest": 2683,
+          "principal": 43835,
+          "balance": 90335
+        },
+        {
+          "n": 25,
+          "due_month": 81,
+          "instalment": 46518,
+          "interest": 1807,
+          "principal": 44711,
+          "balance": 45624
+        },
+        {
+          "n": 26,
+          "due_month": 84,
+          "instalment": 46536,
+          "interest": 912,
+          "principal": 45624,
+          "balance": 0
+        }
+      ]
+    }
+  },
+  "G6_education": {
+    "endpoint": "POST /api/v1/recommend",
+    "request": {
+      "locale": "en",
+      "profile": {
+        "is_sc": true,
+        "annual_family_income": 240000,
+        "purpose": "education",
+        "education": {
+          "course_code": "BTECH",
+          "study_location": "india",
+          "total_course_fee": 800000,
+          "remaining_course_months": 48,
+          "admission_confirmed": true
+        }
+      }
+    },
+    "response": {
+      "request_id": "req_FIXTURE",
+      "ruleset_version": "2026.09.10",
+      "eligible": true,
+      "blockers": [],
+      "options": [
+        {
+          "option_id": "NSFDC_ELS",
+          "rank": 1,
+          "scheme_id": "NSFDC_ELS",
+          "scheme_name_key": "scheme.NSFDC_ELS.name",
+          "channel_variant_key": null,
+          "channel_types": [
+            "SCA",
+            "PSB",
+            "RRB"
+          ],
+          "project_cost": 800000,
+          "sanctionable_amount": 720000,
+          "own_contribution_required": 80000,
+          "financing_pct": 90,
+          "interest_rate": 6.5,
+          "instalment_frequency": "quarterly",
+          "total_period_months": 144,
+          "moratorium_months": 60,
+          "number_of_instalments": 48,
+          "principal_at_repayment_start": 954000,
+          "instalment": 28777,
+          "monthly_equivalent": 9592,
+          "total_outgo": 1381296,
+          "total_interest": 661296,
+          "indicative": true,
+          "data_tier": "VERIFIED",
+          "reasons": [
+            {
+              "code": "INCOME_WITHIN_CEILING",
+              "params": {
+                "ceiling": 500000
+              }
+            },
+            {
+              "code": "LOWEST_COST_OPTION",
+              "params": {}
+            }
+          ],
+          "caveats": [
+            {
+              "code": "SANCTION_AT_PARTNER_DISCRETION",
+              "params": {}
+            },
+            {
+              "code": "MORATORIUM_TREATMENT_ASSUMED",
+              "params": {
+                "treatment": "capitalise"
+              }
+            }
+          ],
+          "citations": [
+            {
+              "field": "project_cost_max",
+              "value": "Up to ₹40 lakh, or 90% of course fee",
+              "source_url": "https://nsfdc.nic.in/scheme",
+              "as_of": "2026-09-09"
+            },
+            {
+              "field": "financing_pct",
+              "value": "90% of course fee",
+              "source_url": "https://nsfdc.nic.in/scheme",
+              "as_of": "2026-09-09"
+            },
+            {
+              "field": "interest_rate",
+              "value": "6.5% to beneficiary",
+              "source_url": "https://nsfdc.nic.in/scheme",
+              "as_of": "2026-09-09"
+            },
+            {
+              "field": "total_period_months",
+              "value": "12 years excluding moratorium",
+              "source_url": "https://nsfdc.nic.in/scheme",
+              "as_of": "2026-09-09"
+            },
+            {
+              "field": "moratorium_derivation",
+              "value": "Course period plus 1 year",
+              "source_url": "https://nsfdc.nic.in/scheme",
+              "as_of": "2026-09-09"
+            }
+          ]
+        }
+      ],
+      "comparison": {
+        "cheapest_option_id": "NSFDC_ELS",
+        "costliest_option_id": "NSFDC_ELS",
+        "extra_cost_if_worst_route": 0,
+        "message_key": "comparison.route_matters"
+      },
+      "remediation": [],
+      "documents_required": [
+        {
+          "code": "CASTE_CERT",
+          "mandatory": true
+        },
+        {
+          "code": "INCOME_CERT",
+          "mandatory": true
+        },
+        {
+          "code": "AADHAAR",
+          "mandatory": true
+        },
+        {
+          "code": "BANK_PASSBOOK",
+          "mandatory": true
+        },
+        {
+          "code": "ADMISSION_LETTER",
+          "mandatory": true
+        },
+        {
+          "code": "FEE_STRUCTURE",
+          "mandatory": true
+        },
+        {
+          "code": "PHOTO",
+          "mandatory": true
+        }
+      ],
+      "next_step": {
+        "key": "next_step.visit_partner",
+        "external_portal": "https://pmsuraj.dosje.gov.in/"
+      }
+    }
+  },
+  "G10_plantation": {
+    "endpoint": "POST /api/v1/recommend",
+    "request": {
+      "locale": "en",
+      "profile": {
+        "is_sc": true,
+        "annual_family_income": 240000,
+        "purpose": "business",
+        "activity_code": "HORTICULTURE_PLANTATION",
+        "project_cost": 300000
+      }
+    },
+    "response": {
+      "request_id": "req_FIXTURE",
+      "ruleset_version": "2026.09.10",
+      "eligible": true,
+      "blockers": [],
+      "options": [
+        {
+          "option_id": "NSFDC_TL",
+          "rank": 1,
+          "scheme_id": "NSFDC_TL",
+          "scheme_name_key": "scheme.NSFDC_TL.name",
+          "channel_variant_key": null,
+          "channel_types": [
+            "SCA",
+            "PSB",
+            "RRB"
+          ],
+          "project_cost": 300000,
+          "sanctionable_amount": 270000,
+          "own_contribution_required": 30000,
+          "financing_pct": 90,
+          "interest_rate": 8.0,
+          "instalment_frequency": "quarterly",
+          "total_period_months": 84,
+          "moratorium_months": 12,
+          "number_of_instalments": 24,
+          "principal_at_repayment_start": 291600,
+          "instalment": 15417,
+          "monthly_equivalent": 5139,
+          "total_outgo": 370008,
+          "total_interest": 100008,
+          "indicative": true,
+          "data_tier": "VERIFIED",
+          "reasons": [
+            {
+              "code": "COST_REQUIRES_TERM_LOAN",
+              "params": {
+                "cap": 140000
+              }
+            },
+            {
+              "code": "INCOME_WITHIN_CEILING",
+              "params": {
+                "ceiling": 500000
+              }
+            },
+            {
+              "code": "PLANTATION_EXTENDED_MORATORIUM",
+              "params": {}
+            },
+            {
+              "code": "LOWEST_COST_OPTION",
+              "params": {}
+            }
+          ],
+          "caveats": [
+            {
+              "code": "SANCTION_AT_PARTNER_DISCRETION",
+              "params": {}
+            },
+            {
+              "code": "MORATORIUM_TREATMENT_ASSUMED",
+              "params": {
+                "treatment": "capitalise"
+              }
+            }
+          ],
+          "citations": [
+            {
+              "field": "project_cost_min",
+              "value": "Project cost above ₹1.40 lakh",
+              "source_url": "https://nsfdc.nic.in/scheme",
+              "as_of": "2026-09-09"
+            },
+            {
+              "field": "project_cost_max",
+              "value": "Project cost up to ₹50 lakh",
+              "source_url": "https://nsfdc.nic.in/scheme",
+              "as_of": "2026-09-09"
+            },
+            {
+              "field": "financing_pct",
+              "value": "90% of project cost",
+              "source_url": "https://nsfdc.nic.in/scheme",
+              "as_of": "2026-09-09"
+            },
+            {
+              "field": "loan_max",
+              "value": "Loan above ₹1.25 lakh up to ₹45 lakh",
+              "source_url": "https://nsfdc.nic.in/scheme",
+              "as_of": "2026-09-09"
+            },
+            {
+              "field": "interest_rate",
+              "value": "8% to beneficiary",
+              "source_url": "https://nsfdc.nic.in/scheme",
+              "as_of": "2026-09-09"
+            },
+            {
+              "field": "total_period_months",
+              "value": "7 years including moratorium",
+              "source_url": "https://nsfdc.nic.in/scheme",
+              "as_of": "2026-09-09"
+            },
+            {
+              "field": "moratorium_months",
+              "value": "6-month moratorium; 12 months for plantation or construction activities",
+              "source_url": "https://nsfdc.nic.in/scheme",
+              "as_of": "2026-09-09"
+            }
+          ]
+        },
+        {
+          "option_id": "NSFDC_UNY.COOP",
+          "rank": 2,
+          "scheme_id": "NSFDC_UNY",
+          "scheme_name_key": "scheme.NSFDC_UNY.name",
+          "channel_variant_key": "channel.coop",
+          "channel_types": [
+            "COOP_BANK",
+            "COOP_SOCIETY"
+          ],
+          "project_cost": 300000,
+          "sanctionable_amount": 270000,
+          "own_contribution_required": 30000,
+          "financing_pct": 90,
+          "interest_rate": 13.0,
+          "instalment_frequency": "quarterly",
+          "total_period_months": 60,
+          "moratorium_months": 3,
+          "number_of_instalments": 19,
+          "principal_at_repayment_start": 278775,
+          "instalment": 19896,
+          "monthly_equivalent": 6632,
+          "total_outgo": 378024,
+          "total_interest": 108024,
+          "indicative": true,
+          "data_tier": "VERIFIED",
+          "reasons": [
+            {
+              "code": "ELIGIBLE_BUT_COSTLIER",
+              "params": {
+                "delta": 8016
+              }
+            }
+          ],
+          "caveats": [
+            {
+              "code": "SANCTION_AT_PARTNER_DISCRETION",
+              "params": {}
+            },
+            {
+              "code": "MORATORIUM_TREATMENT_ASSUMED",
+              "params": {
+                "treatment": "capitalise"
+              }
+            }
+          ],
+          "citations": [
+            {
+              "field": "project_cost_max",
+              "value": "Project cost up to ₹5.00 lakh",
+              "source_url": "https://nsfdc.nic.in/scheme",
+              "as_of": "2026-09-09"
+            },
+            {
+              "field": "financing_pct",
+              "value": "90% of project cost",
+              "source_url": "https://nsfdc.nic.in/scheme",
+              "as_of": "2026-09-09"
+            },
+            {
+              "field": "loan_max",
+              "value": "Loan max ₹4.50 lakh",
+              "source_url": "https://nsfdc.nic.in/scheme",
+              "as_of": "2026-09-09"
+            },
+            {
+              "field": "total_period_months",
+              "value": "5 years including moratorium",
+              "source_url": "https://nsfdc.nic.in/scheme",
+              "as_of": "2026-09-09"
+            },
+            {
+              "field": "moratorium_months",
+              "value": "3-month moratorium",
+              "source_url": "https://nsfdc.nic.in/scheme",
+              "as_of": "2026-09-09"
+            },
+            {
+              "field": "interest_rate",
+              "value": "13% via co-operative banks/societies",
+              "source_url": "https://nsfdc.nic.in/scheme",
+              "as_of": "2026-09-09"
+            }
+          ]
+        },
+        {
+          "option_id": "NSFDC_UNY.SFB",
+          "rank": 3,
+          "scheme_id": "NSFDC_UNY",
+          "scheme_name_key": "scheme.NSFDC_UNY.name",
+          "channel_variant_key": "channel.sfb",
+          "channel_types": [
+            "SFB"
+          ],
+          "project_cost": 300000,
+          "sanctionable_amount": 270000,
+          "own_contribution_required": 30000,
+          "financing_pct": 90,
+          "interest_rate": 15.0,
+          "instalment_frequency": "quarterly",
+          "total_period_months": 60,
+          "moratorium_months": 3,
+          "number_of_instalments": 19,
+          "principal_at_repayment_start": 280125,
+          "instalment": 20878,
+          "monthly_equivalent": 6959,
+          "total_outgo": 396682,
+          "total_interest": 126682,
+          "indicative": true,
+          "data_tier": "VERIFIED",
+          "reasons": [
+            {
+              "code": "ELIGIBLE_BUT_COSTLIER",
+              "params": {
+                "delta": 26674
+              }
+            }
+          ],
+          "caveats": [
+            {
+              "code": "SANCTION_AT_PARTNER_DISCRETION",
+              "params": {}
+            },
+            {
+              "code": "MORATORIUM_TREATMENT_ASSUMED",
+              "params": {
+                "treatment": "capitalise"
+              }
+            }
+          ],
+          "citations": [
+            {
+              "field": "project_cost_max",
+              "value": "Project cost up to ₹5.00 lakh",
+              "source_url": "https://nsfdc.nic.in/scheme",
+              "as_of": "2026-09-09"
+            },
+            {
+              "field": "financing_pct",
+              "value": "90% of project cost",
+              "source_url": "https://nsfdc.nic.in/scheme",
+              "as_of": "2026-09-09"
+            },
+            {
+              "field": "loan_max",
+              "value": "Loan max ₹4.50 lakh",
+              "source_url": "https://nsfdc.nic.in/scheme",
+              "as_of": "2026-09-09"
+            },
+            {
+              "field": "total_period_months",
+              "value": "5 years including moratorium",
+              "source_url": "https://nsfdc.nic.in/scheme",
+              "as_of": "2026-09-09"
+            },
+            {
+              "field": "moratorium_months",
+              "value": "3-month moratorium",
+              "source_url": "https://nsfdc.nic.in/scheme",
+              "as_of": "2026-09-09"
+            },
+            {
+              "field": "interest_rate",
+              "value": "15% via small finance banks",
+              "source_url": "https://nsfdc.nic.in/scheme",
+              "as_of": "2026-09-09"
+            }
+          ]
+        }
+      ],
+      "comparison": {
+        "cheapest_option_id": "NSFDC_TL",
+        "costliest_option_id": "NSFDC_UNY.SFB",
+        "extra_cost_if_worst_route": 26674,
+        "message_key": "comparison.route_matters"
+      },
+      "remediation": [],
+      "documents_required": [
+        {
+          "code": "CASTE_CERT",
+          "mandatory": true
+        },
+        {
+          "code": "INCOME_CERT",
+          "mandatory": true
+        },
+        {
+          "code": "AADHAAR",
+          "mandatory": true
+        },
+        {
+          "code": "BANK_PASSBOOK",
+          "mandatory": true
+        },
+        {
+          "code": "PROJECT_QUOTATION",
+          "mandatory": true
+        },
+        {
+          "code": "PHOTO",
+          "mandatory": true
+        }
+      ],
+      "next_step": {
+        "key": "next_step.visit_partner",
+        "external_portal": "https://pmsuraj.dosje.gov.in/"
+      }
+    }
+  },
+  "G7_blocked_income": {
+    "endpoint": "POST /api/v1/recommend",
+    "request": {
+      "locale": "en",
+      "profile": {
+        "is_sc": true,
+        "annual_family_income": 650000,
+        "purpose": "business",
+        "activity_code": "TAILORING",
+        "project_cost": 120000
+      }
+    },
+    "response": {
+      "request_id": "req_FIXTURE",
+      "ruleset_version": "2026.09.10",
+      "eligible": false,
+      "blockers": [
+        {
+          "code": "INCOME_ABOVE_CEILING",
+          "params": {
+            "provided": 650000,
+            "ceiling": 500000
+          }
+        }
+      ],
+      "options": [],
+      "comparison": null,
+      "remediation": [
+        {
+          "code": "CHECK_NBCFDC",
+          "params": {}
+        },
+        {
+          "code": "REAPPLY_IF_INCOME_CHANGES",
+          "params": {}
+        }
+      ],
+      "documents_required": [],
+      "next_step": null
+    }
+  },
+  "G8_boundary_140k": {
+    "endpoint": "POST /api/v1/recommend",
+    "at_cap": {
+      "request": {
+        "locale": "en",
+        "profile": {
+          "is_sc": true,
+          "annual_family_income": 240000,
+          "purpose": "business",
+          "activity_code": "TAILORING",
+          "project_cost": 140000
+        }
+      },
+      "response": {
+        "request_id": "req_FIXTURE",
+        "ruleset_version": "2026.09.10",
+        "eligible": true,
+        "blockers": [],
+        "options": [
+          {
+            "option_id": "NSFDC_MFS",
+            "rank": 1,
+            "scheme_id": "NSFDC_MFS",
+            "scheme_name_key": "scheme.NSFDC_MFS.name",
+            "channel_variant_key": null,
+            "channel_types": [
+              "SCA",
+              "PSB",
+              "RRB"
+            ],
+            "project_cost": 140000,
+            "sanctionable_amount": 125000,
+            "own_contribution_required": 15000,
+            "financing_pct": 90,
+            "interest_rate": 6.5,
+            "instalment_frequency": "quarterly",
+            "total_period_months": 36,
+            "moratorium_months": 3,
+            "number_of_instalments": 11,
+            "principal_at_repayment_start": 127031,
+            "instalment": 12704,
+            "monthly_equivalent": 4235,
+            "total_outgo": 139744,
+            "total_interest": 14744,
+            "indicative": true,
+            "data_tier": "VERIFIED",
+            "reasons": [
+              {
+                "code": "COST_WITHIN_MFS_CAP",
+                "params": {
+                  "cap": 140000
+                }
+              },
+              {
+                "code": "INCOME_WITHIN_CEILING",
+                "params": {
+                  "ceiling": 500000
+                }
+              },
+              {
+                "code": "LOWEST_COST_OPTION",
+                "params": {}
+              }
+            ],
+            "caveats": [
+              {
+                "code": "SANCTION_AT_PARTNER_DISCRETION",
+                "params": {}
+              },
+              {
+                "code": "MORATORIUM_TREATMENT_ASSUMED",
+                "params": {
+                  "treatment": "capitalise"
+                }
+              }
+            ],
+            "citations": [
+              {
+                "field": "project_cost_max",
+                "value": "Project cost up to ₹1.40 lakh",
+                "source_url": "https://nsfdc.nic.in/scheme",
+                "as_of": "2026-09-09"
+              },
+              {
+                "field": "financing_pct",
+                "value": "90% of project cost",
+                "source_url": "https://nsfdc.nic.in/scheme",
+                "as_of": "2026-09-09"
+              },
+              {
+                "field": "loan_max",
+                "value": "Loan max ₹1.25 lakh",
+                "source_url": "https://nsfdc.nic.in/scheme",
+                "as_of": "2026-09-09"
+              },
+              {
+                "field": "interest_rate",
+                "value": "6.5% to beneficiary",
+                "source_url": "https://nsfdc.nic.in/scheme",
+                "as_of": "2026-09-09"
+              },
+              {
+                "field": "total_period_months",
+                "value": "3 years including moratorium",
+                "source_url": "https://nsfdc.nic.in/scheme",
+                "as_of": "2026-09-09"
+              },
+              {
+                "field": "moratorium_months",
+                "value": "3-month moratorium",
+                "source_url": "https://nsfdc.nic.in/scheme",
+                "as_of": "2026-09-09"
+              }
+            ]
+          },
+          {
+            "option_id": "NSFDC_AMY",
+            "rank": 2,
+            "scheme_id": "NSFDC_AMY",
+            "scheme_name_key": "scheme.NSFDC_AMY.name",
+            "channel_variant_key": null,
+            "channel_types": [
+              "NBFC_MFI"
+            ],
+            "project_cost": 140000,
+            "sanctionable_amount": 125000,
+            "own_contribution_required": 15000,
+            "financing_pct": 90,
+            "interest_rate": 15.0,
+            "instalment_frequency": "quarterly",
+            "total_period_months": 36,
+            "moratorium_months": 3,
+            "number_of_instalments": 11,
+            "principal_at_repayment_start": 129688,
+            "instalment": 14605,
+            "monthly_equivalent": 4868,
+            "total_outgo": 160655,
+            "total_interest": 35655,
+            "indicative": true,
+            "data_tier": "VERIFIED",
+            "reasons": [
+              {
+                "code": "ELIGIBLE_BUT_COSTLIER",
+                "params": {
+                  "delta": 20911
+                }
+              }
+            ],
+            "caveats": [
+              {
+                "code": "SANCTION_AT_PARTNER_DISCRETION",
+                "params": {}
+              },
+              {
+                "code": "MORATORIUM_TREATMENT_ASSUMED",
+                "params": {
+                  "treatment": "capitalise"
+                }
+              }
+            ],
+            "citations": [
+              {
+                "field": "project_cost_max",
+                "value": "Project cost up to ₹1.40 lakh",
+                "source_url": "https://nsfdc.nic.in/scheme",
+                "as_of": "2026-09-09"
+              },
+              {
+                "field": "financing_pct",
+                "value": "90% of project cost",
+                "source_url": "https://nsfdc.nic.in/scheme",
+                "as_of": "2026-09-09"
+              },
+              {
+                "field": "loan_max",
+                "value": "Loan max ₹1.25 lakh",
+                "source_url": "https://nsfdc.nic.in/scheme",
+                "as_of": "2026-09-09"
+              },
+              {
+                "field": "interest_rate",
+                "value": "15% charged by NBFC-MFIs to beneficiaries",
+                "source_url": "https://nsfdc.nic.in/scheme",
+                "as_of": "2026-09-09"
+              },
+              {
+                "field": "total_period_months",
+                "value": "3 years including moratorium",
+                "source_url": "https://nsfdc.nic.in/scheme",
+                "as_of": "2026-09-09"
+              },
+              {
+                "field": "moratorium_months",
+                "value": "3-month moratorium",
+                "source_url": "https://nsfdc.nic.in/scheme",
+                "as_of": "2026-09-09"
+              }
+            ]
+          },
+          {
+            "option_id": "NSFDC_UNY.COOP",
+            "rank": 3,
+            "scheme_id": "NSFDC_UNY",
+            "scheme_name_key": "scheme.NSFDC_UNY.name",
+            "channel_variant_key": "channel.coop",
+            "channel_types": [
+              "COOP_BANK",
+              "COOP_SOCIETY"
+            ],
+            "project_cost": 140000,
+            "sanctionable_amount": 126000,
+            "own_contribution_required": 14000,
+            "financing_pct": 90,
+            "interest_rate": 13.0,
+            "instalment_frequency": "quarterly",
+            "total_period_months": 60,
+            "moratorium_months": 3,
+            "number_of_instalments": 19,
+            "principal_at_repayment_start": 130095,
+            "instalment": 9285,
+            "monthly_equivalent": 3095,
+            "total_outgo": 176415,
+            "total_interest": 50415,
+            "indicative": true,
+            "data_tier": "VERIFIED",
+            "reasons": [
+              {
+                "code": "ELIGIBLE_BUT_COSTLIER",
+                "params": {
+                  "delta": 35671
+                }
+              }
+            ],
+            "caveats": [
+              {
+                "code": "SANCTION_AT_PARTNER_DISCRETION",
+                "params": {}
+              },
+              {
+                "code": "MORATORIUM_TREATMENT_ASSUMED",
+                "params": {
+                  "treatment": "capitalise"
+                }
+              }
+            ],
+            "citations": [
+              {
+                "field": "project_cost_max",
+                "value": "Project cost up to ₹5.00 lakh",
+                "source_url": "https://nsfdc.nic.in/scheme",
+                "as_of": "2026-09-09"
+              },
+              {
+                "field": "financing_pct",
+                "value": "90% of project cost",
+                "source_url": "https://nsfdc.nic.in/scheme",
+                "as_of": "2026-09-09"
+              },
+              {
+                "field": "loan_max",
+                "value": "Loan max ₹4.50 lakh",
+                "source_url": "https://nsfdc.nic.in/scheme",
+                "as_of": "2026-09-09"
+              },
+              {
+                "field": "total_period_months",
+                "value": "5 years including moratorium",
+                "source_url": "https://nsfdc.nic.in/scheme",
+                "as_of": "2026-09-09"
+              },
+              {
+                "field": "moratorium_months",
+                "value": "3-month moratorium",
+                "source_url": "https://nsfdc.nic.in/scheme",
+                "as_of": "2026-09-09"
+              },
+              {
+                "field": "interest_rate",
+                "value": "13% via co-operative banks/societies",
+                "source_url": "https://nsfdc.nic.in/scheme",
+                "as_of": "2026-09-09"
+              }
+            ]
+          },
+          {
+            "option_id": "NSFDC_UNY.SFB",
+            "rank": 4,
+            "scheme_id": "NSFDC_UNY",
+            "scheme_name_key": "scheme.NSFDC_UNY.name",
+            "channel_variant_key": "channel.sfb",
+            "channel_types": [
+              "SFB"
+            ],
+            "project_cost": 140000,
+            "sanctionable_amount": 126000,
+            "own_contribution_required": 14000,
+            "financing_pct": 90,
+            "interest_rate": 15.0,
+            "instalment_frequency": "quarterly",
+            "total_period_months": 60,
+            "moratorium_months": 3,
+            "number_of_instalments": 19,
+            "principal_at_repayment_start": 130725,
+            "instalment": 9743,
+            "monthly_equivalent": 3248,
+            "total_outgo": 185117,
+            "total_interest": 59117,
+            "indicative": true,
+            "data_tier": "VERIFIED",
+            "reasons": [
+              {
+                "code": "ELIGIBLE_BUT_COSTLIER",
+                "params": {
+                  "delta": 44373
+                }
+              }
+            ],
+            "caveats": [
+              {
+                "code": "SANCTION_AT_PARTNER_DISCRETION",
+                "params": {}
+              },
+              {
+                "code": "MORATORIUM_TREATMENT_ASSUMED",
+                "params": {
+                  "treatment": "capitalise"
+                }
+              }
+            ],
+            "citations": [
+              {
+                "field": "project_cost_max",
+                "value": "Project cost up to ₹5.00 lakh",
+                "source_url": "https://nsfdc.nic.in/scheme",
+                "as_of": "2026-09-09"
+              },
+              {
+                "field": "financing_pct",
+                "value": "90% of project cost",
+                "source_url": "https://nsfdc.nic.in/scheme",
+                "as_of": "2026-09-09"
+              },
+              {
+                "field": "loan_max",
+                "value": "Loan max ₹4.50 lakh",
+                "source_url": "https://nsfdc.nic.in/scheme",
+                "as_of": "2026-09-09"
+              },
+              {
+                "field": "total_period_months",
+                "value": "5 years including moratorium",
+                "source_url": "https://nsfdc.nic.in/scheme",
+                "as_of": "2026-09-09"
+              },
+              {
+                "field": "moratorium_months",
+                "value": "3-month moratorium",
+                "source_url": "https://nsfdc.nic.in/scheme",
+                "as_of": "2026-09-09"
+              },
+              {
+                "field": "interest_rate",
+                "value": "15% via small finance banks",
+                "source_url": "https://nsfdc.nic.in/scheme",
+                "as_of": "2026-09-09"
+              }
+            ]
+          }
+        ],
+        "comparison": {
+          "cheapest_option_id": "NSFDC_MFS",
+          "costliest_option_id": "NSFDC_UNY.SFB",
+          "extra_cost_if_worst_route": 44373,
+          "message_key": "comparison.route_matters"
+        },
+        "remediation": [],
+        "documents_required": [
+          {
+            "code": "CASTE_CERT",
+            "mandatory": true
+          },
+          {
+            "code": "INCOME_CERT",
+            "mandatory": true
+          },
+          {
+            "code": "AADHAAR",
+            "mandatory": true
+          },
+          {
+            "code": "BANK_PASSBOOK",
+            "mandatory": true
+          },
+          {
+            "code": "PROJECT_QUOTATION",
+            "mandatory": true
+          },
+          {
+            "code": "PHOTO",
+            "mandatory": true
+          }
+        ],
+        "next_step": {
+          "key": "next_step.visit_partner",
+          "external_portal": "https://pmsuraj.dosje.gov.in/"
+        }
+      }
+    },
+    "over_cap": {
+      "request": {
+        "locale": "en",
+        "profile": {
+          "is_sc": true,
+          "annual_family_income": 240000,
+          "purpose": "business",
+          "activity_code": "TAILORING",
+          "project_cost": 140001
+        }
+      },
+      "response": {
+        "request_id": "req_FIXTURE",
+        "ruleset_version": "2026.09.10",
+        "eligible": true,
+        "blockers": [],
+        "options": [
+          {
+            "option_id": "NSFDC_TL",
+            "rank": 1,
+            "scheme_id": "NSFDC_TL",
+            "scheme_name_key": "scheme.NSFDC_TL.name",
+            "channel_variant_key": null,
+            "channel_types": [
+              "SCA",
+              "PSB",
+              "RRB"
+            ],
+            "project_cost": 140001,
+            "sanctionable_amount": 126001,
+            "own_contribution_required": 14000,
+            "financing_pct": 90,
+            "interest_rate": 8.0,
+            "instalment_frequency": "quarterly",
+            "total_period_months": 84,
+            "moratorium_months": 6,
+            "number_of_instalments": 26,
+            "principal_at_repayment_start": 131041,
+            "instalment": 6513,
+            "monthly_equivalent": 2171,
+            "total_outgo": 169338,
+            "total_interest": 43337,
+            "indicative": true,
+            "data_tier": "VERIFIED",
+            "reasons": [
+              {
+                "code": "COST_REQUIRES_TERM_LOAN",
+                "params": {
+                  "cap": 140000
+                }
+              },
+              {
+                "code": "INCOME_WITHIN_CEILING",
+                "params": {
+                  "ceiling": 500000
+                }
+              },
+              {
+                "code": "LOWEST_COST_OPTION",
+                "params": {}
+              }
+            ],
+            "caveats": [
+              {
+                "code": "SANCTION_AT_PARTNER_DISCRETION",
+                "params": {}
+              },
+              {
+                "code": "MORATORIUM_TREATMENT_ASSUMED",
+                "params": {
+                  "treatment": "capitalise"
+                }
+              }
+            ],
+            "citations": [
+              {
+                "field": "project_cost_min",
+                "value": "Project cost above ₹1.40 lakh",
+                "source_url": "https://nsfdc.nic.in/scheme",
+                "as_of": "2026-09-09"
+              },
+              {
+                "field": "project_cost_max",
+                "value": "Project cost up to ₹50 lakh",
+                "source_url": "https://nsfdc.nic.in/scheme",
+                "as_of": "2026-09-09"
+              },
+              {
+                "field": "financing_pct",
+                "value": "90% of project cost",
+                "source_url": "https://nsfdc.nic.in/scheme",
+                "as_of": "2026-09-09"
+              },
+              {
+                "field": "loan_max",
+                "value": "Loan above ₹1.25 lakh up to ₹45 lakh",
+                "source_url": "https://nsfdc.nic.in/scheme",
+                "as_of": "2026-09-09"
+              },
+              {
+                "field": "interest_rate",
+                "value": "8% to beneficiary",
+                "source_url": "https://nsfdc.nic.in/scheme",
+                "as_of": "2026-09-09"
+              },
+              {
+                "field": "total_period_months",
+                "value": "7 years including moratorium",
+                "source_url": "https://nsfdc.nic.in/scheme",
+                "as_of": "2026-09-09"
+              },
+              {
+                "field": "moratorium_months",
+                "value": "6-month moratorium; 12 months for plantation or construction activities",
+                "source_url": "https://nsfdc.nic.in/scheme",
+                "as_of": "2026-09-09"
+              }
+            ]
+          },
+          {
+            "option_id": "NSFDC_UNY.COOP",
+            "rank": 2,
+            "scheme_id": "NSFDC_UNY",
+            "scheme_name_key": "scheme.NSFDC_UNY.name",
+            "channel_variant_key": "channel.coop",
+            "channel_types": [
+              "COOP_BANK",
+              "COOP_SOCIETY"
+            ],
+            "project_cost": 140001,
+            "sanctionable_amount": 126001,
+            "own_contribution_required": 14000,
+            "financing_pct": 90,
+            "interest_rate": 13.0,
+            "instalment_frequency": "quarterly",
+            "total_period_months": 60,
+            "moratorium_months": 3,
+            "number_of_instalments": 19,
+            "principal_at_repayment_start": 130096,
+            "instalment": 9285,
+            "monthly_equivalent": 3095,
+            "total_outgo": 176415,
+            "total_interest": 50414,
+            "indicative": true,
+            "data_tier": "VERIFIED",
+            "reasons": [
+              {
+                "code": "ELIGIBLE_BUT_COSTLIER",
+                "params": {
+                  "delta": 7077
+                }
+              }
+            ],
+            "caveats": [
+              {
+                "code": "SANCTION_AT_PARTNER_DISCRETION",
+                "params": {}
+              },
+              {
+                "code": "MORATORIUM_TREATMENT_ASSUMED",
+                "params": {
+                  "treatment": "capitalise"
+                }
+              }
+            ],
+            "citations": [
+              {
+                "field": "project_cost_max",
+                "value": "Project cost up to ₹5.00 lakh",
+                "source_url": "https://nsfdc.nic.in/scheme",
+                "as_of": "2026-09-09"
+              },
+              {
+                "field": "financing_pct",
+                "value": "90% of project cost",
+                "source_url": "https://nsfdc.nic.in/scheme",
+                "as_of": "2026-09-09"
+              },
+              {
+                "field": "loan_max",
+                "value": "Loan max ₹4.50 lakh",
+                "source_url": "https://nsfdc.nic.in/scheme",
+                "as_of": "2026-09-09"
+              },
+              {
+                "field": "total_period_months",
+                "value": "5 years including moratorium",
+                "source_url": "https://nsfdc.nic.in/scheme",
+                "as_of": "2026-09-09"
+              },
+              {
+                "field": "moratorium_months",
+                "value": "3-month moratorium",
+                "source_url": "https://nsfdc.nic.in/scheme",
+                "as_of": "2026-09-09"
+              },
+              {
+                "field": "interest_rate",
+                "value": "13% via co-operative banks/societies",
+                "source_url": "https://nsfdc.nic.in/scheme",
+                "as_of": "2026-09-09"
+              }
+            ]
+          },
+          {
+            "option_id": "NSFDC_UNY.SFB",
+            "rank": 3,
+            "scheme_id": "NSFDC_UNY",
+            "scheme_name_key": "scheme.NSFDC_UNY.name",
+            "channel_variant_key": "channel.sfb",
+            "channel_types": [
+              "SFB"
+            ],
+            "project_cost": 140001,
+            "sanctionable_amount": 126001,
+            "own_contribution_required": 14000,
+            "financing_pct": 90,
+            "interest_rate": 15.0,
+            "instalment_frequency": "quarterly",
+            "total_period_months": 60,
+            "moratorium_months": 3,
+            "number_of_instalments": 19,
+            "principal_at_repayment_start": 130726,
+            "instalment": 9743,
+            "monthly_equivalent": 3248,
+            "total_outgo": 185117,
+            "total_interest": 59116,
+            "indicative": true,
+            "data_tier": "VERIFIED",
+            "reasons": [
+              {
+                "code": "ELIGIBLE_BUT_COSTLIER",
+                "params": {
+                  "delta": 15779
+                }
+              }
+            ],
+            "caveats": [
+              {
+                "code": "SANCTION_AT_PARTNER_DISCRETION",
+                "params": {}
+              },
+              {
+                "code": "MORATORIUM_TREATMENT_ASSUMED",
+                "params": {
+                  "treatment": "capitalise"
+                }
+              }
+            ],
+            "citations": [
+              {
+                "field": "project_cost_max",
+                "value": "Project cost up to ₹5.00 lakh",
+                "source_url": "https://nsfdc.nic.in/scheme",
+                "as_of": "2026-09-09"
+              },
+              {
+                "field": "financing_pct",
+                "value": "90% of project cost",
+                "source_url": "https://nsfdc.nic.in/scheme",
+                "as_of": "2026-09-09"
+              },
+              {
+                "field": "loan_max",
+                "value": "Loan max ₹4.50 lakh",
+                "source_url": "https://nsfdc.nic.in/scheme",
+                "as_of": "2026-09-09"
+              },
+              {
+                "field": "total_period_months",
+                "value": "5 years including moratorium",
+                "source_url": "https://nsfdc.nic.in/scheme",
+                "as_of": "2026-09-09"
+              },
+              {
+                "field": "moratorium_months",
+                "value": "3-month moratorium",
+                "source_url": "https://nsfdc.nic.in/scheme",
+                "as_of": "2026-09-09"
+              },
+              {
+                "field": "interest_rate",
+                "value": "15% via small finance banks",
+                "source_url": "https://nsfdc.nic.in/scheme",
+                "as_of": "2026-09-09"
+              }
+            ]
+          }
+        ],
+        "comparison": {
+          "cheapest_option_id": "NSFDC_TL",
+          "costliest_option_id": "NSFDC_UNY.SFB",
+          "extra_cost_if_worst_route": 15779,
+          "message_key": "comparison.route_matters"
+        },
+        "remediation": [],
+        "documents_required": [
+          {
+            "code": "CASTE_CERT",
+            "mandatory": true
+          },
+          {
+            "code": "INCOME_CERT",
+            "mandatory": true
+          },
+          {
+            "code": "AADHAAR",
+            "mandatory": true
+          },
+          {
+            "code": "BANK_PASSBOOK",
+            "mandatory": true
+          },
+          {
+            "code": "PROJECT_QUOTATION",
+            "mandatory": true
+          },
+          {
+            "code": "PHOTO",
+            "mandatory": true
+          }
+        ],
+        "next_step": {
+          "key": "next_step.visit_partner",
+          "external_portal": "https://pmsuraj.dosje.gov.in/"
+        }
+      }
+    }
+  },
+  "partners_ahmedabad_mfs": {
+    "endpoint": "GET /api/v1/partners",
+    "request": {
+      "lat": 23.0225,
+      "lng": 72.5714,
+      "scheme_id": "NSFDC_MFS",
+      "radius_km": 25,
+      "limit": 10
+    },
+    "response": {
+      "request_id": "req_FIXTURE",
+      "ruleset_version": "2026.09.10",
+      "query": {
+        "scheme_id": "NSFDC_MFS",
+        "lat": 23.0225,
+        "lng": 72.5714,
+        "state_code": null,
+        "district": null,
+        "radius_km": 25.0,
+        "limit": 10
+      },
+      "data_tier": "SIMULATED",
+      "disclaimer_key": "partners.dataset_simulated",
+      "partners": [
+        {
+          "partner_id": "SCA-GJ-AHM-01",
+          "name": "Gujarat Scheduled Castes Development Corporation",
+          "branch_label": "Ahmedabad District Office",
+          "type": "SCA",
+          "address": "Block 4, Udyog Bhavan, Sector 11, Ahmedabad",
+          "district": "Ahmedabad",
+          "state": "Gujarat",
+          "state_code": "GJ",
+          "pincode": "380009",
+          "lat": 23.0301,
+          "lng": 72.5806,
+          "phone": "1800-110-396",
+          "distance_km": 1.3,
+          "schemes_supported": [
+            "NSFDC_MFS",
+            "NSFDC_TL",
+            "NSFDC_ELS"
+          ],
+          "routing_status": "ACCEPTING",
+          "routing_reasons": [
+            {
+              "code": "UTILISATION_WITHIN_LIMIT",
+              "params": {
+                "pct": 62.0
+              }
+            },
+            {
+              "code": "OVERDUE_BELOW_THRESHOLD",
+              "params": {
+                "pct": 7.4
+              }
+            }
+          ],
+          "indicators": {
+            "fund_utilisation_pct": 62.0,
+            "overdue_ratio_pct": 7.4,
+            "avg_sanction_days": 21
+          },
+          "data_tier": "SIMULATED"
+        },
+        {
+          "partner_id": "PSB-GJ-AHM-02",
+          "name": "State Bank of India",
+          "branch_label": "Ahmedabad Main Branch",
+          "type": "PSB",
+          "address": "Lal Darwaja, Ahmedabad",
+          "district": "Ahmedabad",
+          "state": "Gujarat",
+          "state_code": "GJ",
+          "pincode": "380001",
+          "lat": 23.0258,
+          "lng": 72.5873,
+          "phone": "079-2550-1122",
+          "distance_km": 1.7,
+          "schemes_supported": [
+            "NSFDC_MFS",
+            "NSFDC_TL",
+            "NSFDC_ELS"
+          ],
+          "routing_status": "ACCEPTING",
+          "routing_reasons": [
+            {
+              "code": "UTILISATION_WITHIN_LIMIT",
+              "params": {
+                "pct": 55.0
+              }
+            },
+            {
+              "code": "OVERDUE_BELOW_THRESHOLD",
+              "params": {
+                "pct": 5.1
+              }
+            }
+          ],
+          "indicators": {
+            "fund_utilisation_pct": 55.0,
+            "overdue_ratio_pct": 5.1,
+            "avg_sanction_days": 18
+          },
+          "data_tier": "SIMULATED"
+        },
+        {
+          "partner_id": "RRB-GJ-AHM-04",
+          "name": "Baroda Gujarat Gramin Bank",
+          "branch_label": "Ahmedabad Rural Branch",
+          "type": "RRB",
+          "address": "Ring Road, Vatva, Ahmedabad",
+          "district": "Ahmedabad",
+          "state": "Gujarat",
+          "state_code": "GJ",
+          "pincode": "382445",
+          "lat": 23.048,
+          "lng": 72.6105,
+          "phone": "079-2583-5566",
+          "distance_km": 4.9,
+          "schemes_supported": [
+            "NSFDC_MFS",
+            "NSFDC_TL",
+            "NSFDC_ELS"
+          ],
+          "routing_status": "ACCEPTING",
+          "routing_reasons": [
+            {
+              "code": "UTILISATION_WITHIN_LIMIT",
+              "params": {
+                "pct": 48.0
+              }
+            },
+            {
+              "code": "OVERDUE_BELOW_THRESHOLD",
+              "params": {
+                "pct": 9.0
+              }
+            }
+          ],
+          "indicators": {
+            "fund_utilisation_pct": 48.0,
+            "overdue_ratio_pct": 9.0,
+            "avg_sanction_days": 20
+          },
+          "data_tier": "SIMULATED"
+        },
+        {
+          "partner_id": "PSB-GJ-AHM-03",
+          "name": "Bank of Baroda",
+          "branch_label": "Navrangpura Branch",
+          "type": "PSB",
+          "address": "Ashram Road, Navrangpura, Ahmedabad",
+          "district": "Ahmedabad",
+          "state": "Gujarat",
+          "state_code": "GJ",
+          "pincode": "380009",
+          "lat": 23.0395,
+          "lng": 72.5615,
+          "phone": "079-2640-3344",
+          "distance_km": 2.1,
+          "schemes_supported": [
+            "NSFDC_MFS",
+            "NSFDC_TL",
+            "NSFDC_ELS"
+          ],
+          "routing_status": "LIMITED",
+          "routing_reasons": [
+            {
+              "code": "UTILISATION_HIGH",
+              "params": {
+                "pct": 92.0
+              }
+            },
+            {
+              "code": "OVERDUE_BELOW_THRESHOLD",
+              "params": {
+                "pct": 6.0
+              }
+            }
+          ],
+          "indicators": {
+            "fund_utilisation_pct": 92.0,
+            "overdue_ratio_pct": 6.0,
+            "avg_sanction_days": 30
+          },
+          "data_tier": "SIMULATED"
+        }
+      ],
+      "excluded": {
+        "count": 0,
+        "items": []
+      }
+    }
+  },
+  "partners_empty": {
+    "endpoint": "GET /api/v1/partners",
+    "request": {
+      "lat": 1.0,
+      "lng": 1.0,
+      "scheme_id": "NSFDC_MFS",
+      "radius_km": 25
+    },
+    "response": {
+      "request_id": "req_FIXTURE",
+      "ruleset_version": "2026.09.10",
+      "query": {
+        "scheme_id": "NSFDC_MFS",
+        "lat": 1.0,
+        "lng": 1.0,
+        "state_code": null,
+        "district": null,
+        "radius_km": 25.0,
+        "limit": null
+      },
+      "data_tier": "SIMULATED",
+      "disclaimer_key": "partners.dataset_simulated",
+      "partners": [],
+      "excluded": {
+        "count": 0,
+        "items": []
+      }
+    }
+  }
+}

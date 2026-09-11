@@ -1,0 +1,239 @@
+{
+  "ruleset_version": "2026.09.10",
+  "moratorium_treatment": "capitalise",
+  "variants": {
+    "els_variant": "unified_2026",
+    "women_rebate_enabled": false,
+    "els_income_ceiling": 500000
+  },
+  "variant_alternatives": {
+    "els_variant": {
+      "split_legacy": {
+        "description": "Split domestic/abroad education loan rate structure, seen in secondary sources but not on the current official NSFDC page.",
+        "data_tier": "VARIANT",
+        "india": { "project_cost_max": 3000000, "interest_rate": 6.0 },
+        "abroad": { "project_cost_max": 4000000, "interest_rate": 7.0 }
+      }
+    },
+    "women_rebate_enabled": {
+      "true": {
+        "description": "0.5% interest rebate on the Educational Loan Scheme for women applicants.",
+        "data_tier": "VARIANT",
+        "rebate_pct": 0.5,
+        "applies_to": "NSFDC_ELS"
+      }
+    },
+    "els_income_ceiling": {
+      "300000": {
+        "description": "A lower education-loan-specific income ceiling reported in some secondary sources.",
+        "data_tier": "VARIANT"
+      }
+    }
+  },
+  "eligibility": {
+    "income_ceiling": 500000,
+    "requires_sc": true,
+    "data_tier": "VERIFIED",
+    "source_url": "https://nsfdc.nic.in/eligibility-requirements",
+    "as_of": "2026-09-09"
+  },
+  "assumptions": [
+    {
+      "code": "els_instalment_frequency_assumed",
+      "applies_to": "NSFDC_ELS",
+      "note": "The Educational Loan Scheme's instalment frequency is not published. Quarterly is assumed for consistency with the other four schemes.",
+      "label_as": "assumption"
+    },
+    {
+      "code": "moratorium_treatment_assumed",
+      "applies_to": "all",
+      "note": "Whether moratorium interest is capitalised, served or deferred is not published. Simple accrual capitalised into principal at repayment start is assumed by default. Switchable via moratorium_treatment: capitalise | serve | defer.",
+      "label_as": "assumption"
+    }
+  ],
+  "schemes": [
+    {
+      "scheme_id": "NSFDC_MFS",
+      "name_key": "scheme.NSFDC_MFS.name",
+      "purpose": "business",
+      "project_cost_min": 0,
+      "project_cost_max": 140000,
+      "financing_pct": 90,
+      "loan_min": 0,
+      "loan_max": 125000,
+      "interest_rate": 6.5,
+      "channel_variants": null,
+      "channel_types": ["SCA", "PSB", "RRB"],
+      "total_period_months": 36,
+      "tenure_includes_moratorium": true,
+      "moratorium_months": 3,
+      "moratorium_months_special": null,
+      "instalment_frequency": "quarterly",
+      "data_tier": "VERIFIED",
+      "citations": [
+        { "field": "project_cost_max", "value": "Project cost up to ₹1.40 lakh",
+          "source_url": "https://nsfdc.nic.in/scheme", "as_of": "2026-09-09" },
+        { "field": "financing_pct", "value": "90% of project cost",
+          "source_url": "https://nsfdc.nic.in/scheme", "as_of": "2026-09-09" },
+        { "field": "loan_max", "value": "Loan max ₹1.25 lakh",
+          "source_url": "https://nsfdc.nic.in/scheme", "as_of": "2026-09-09" },
+        { "field": "interest_rate", "value": "6.5% to beneficiary",
+          "source_url": "https://nsfdc.nic.in/scheme", "as_of": "2026-09-09" },
+        { "field": "total_period_months", "value": "3 years including moratorium",
+          "source_url": "https://nsfdc.nic.in/scheme", "as_of": "2026-09-09" },
+        { "field": "moratorium_months", "value": "3-month moratorium",
+          "source_url": "https://nsfdc.nic.in/scheme", "as_of": "2026-09-09" }
+      ]
+    },
+    {
+      "scheme_id": "NSFDC_TL",
+      "name_key": "scheme.NSFDC_TL.name",
+      "purpose": "business",
+      "project_cost_min": 140000,
+      "project_cost_min_exclusive": true,
+      "project_cost_max": 5000000,
+      "financing_pct": 90,
+      "loan_min": 125000,
+      "loan_min_exclusive": true,
+      "loan_max": 4500000,
+      "interest_rate": 8.0,
+      "channel_variants": null,
+      "channel_types": ["SCA", "PSB", "RRB"],
+      "total_period_months": 84,
+      "tenure_includes_moratorium": true,
+      "moratorium_months": 6,
+      "moratorium_months_special": 12,
+      "moratorium_special_condition": "is_plantation_or_construction",
+      "instalment_frequency": "quarterly",
+      "data_tier": "VERIFIED",
+      "citations": [
+        { "field": "project_cost_min", "value": "Project cost above ₹1.40 lakh",
+          "source_url": "https://nsfdc.nic.in/scheme", "as_of": "2026-09-09" },
+        { "field": "project_cost_max", "value": "Project cost up to ₹50 lakh",
+          "source_url": "https://nsfdc.nic.in/scheme", "as_of": "2026-09-09" },
+        { "field": "financing_pct", "value": "90% of project cost",
+          "source_url": "https://nsfdc.nic.in/scheme", "as_of": "2026-09-09" },
+        { "field": "loan_max", "value": "Loan above ₹1.25 lakh up to ₹45 lakh",
+          "source_url": "https://nsfdc.nic.in/scheme", "as_of": "2026-09-09" },
+        { "field": "interest_rate", "value": "8% to beneficiary",
+          "source_url": "https://nsfdc.nic.in/scheme", "as_of": "2026-09-09" },
+        { "field": "total_period_months", "value": "7 years including moratorium",
+          "source_url": "https://nsfdc.nic.in/scheme", "as_of": "2026-09-09" },
+        { "field": "moratorium_months", "value": "6-month moratorium; 12 months for plantation or construction activities",
+          "source_url": "https://nsfdc.nic.in/scheme", "as_of": "2026-09-09" }
+      ]
+    },
+    {
+      "scheme_id": "NSFDC_AMY",
+      "name_key": "scheme.NSFDC_AMY.name",
+      "purpose": "business",
+      "project_cost_min": 0,
+      "project_cost_max": 140000,
+      "financing_pct": 90,
+      "loan_min": 0,
+      "loan_max": 125000,
+      "interest_rate": 15.0,
+      "channel_variants": null,
+      "channel_types": ["NBFC_MFI"],
+      "total_period_months": 36,
+      "tenure_includes_moratorium": true,
+      "moratorium_months": 3,
+      "moratorium_months_special": null,
+      "instalment_frequency": "quarterly",
+      "data_tier": "VERIFIED",
+      "citations": [
+        { "field": "project_cost_max", "value": "Project cost up to ₹1.40 lakh",
+          "source_url": "https://nsfdc.nic.in/scheme", "as_of": "2026-09-09" },
+        { "field": "financing_pct", "value": "90% of project cost",
+          "source_url": "https://nsfdc.nic.in/scheme", "as_of": "2026-09-09" },
+        { "field": "loan_max", "value": "Loan max ₹1.25 lakh",
+          "source_url": "https://nsfdc.nic.in/scheme", "as_of": "2026-09-09" },
+        { "field": "interest_rate", "value": "15% charged by NBFC-MFIs to beneficiaries",
+          "source_url": "https://nsfdc.nic.in/scheme", "as_of": "2026-09-09" },
+        { "field": "total_period_months", "value": "3 years including moratorium",
+          "source_url": "https://nsfdc.nic.in/scheme", "as_of": "2026-09-09" },
+        { "field": "moratorium_months", "value": "3-month moratorium",
+          "source_url": "https://nsfdc.nic.in/scheme", "as_of": "2026-09-09" }
+      ]
+    },
+    {
+      "scheme_id": "NSFDC_UNY",
+      "name_key": "scheme.NSFDC_UNY.name",
+      "purpose": "business",
+      "project_cost_min": 0,
+      "project_cost_max": 500000,
+      "financing_pct": 90,
+      "loan_min": 0,
+      "loan_max": 450000,
+      "interest_rate": null,
+      "channel_variants": [
+        { "variant_id": "COOP", "key": "channel.coop", "interest_rate": 13.0,
+          "channel_types": ["COOP_BANK", "COOP_SOCIETY"],
+          "citations": [
+            { "field": "interest_rate", "value": "13% via co-operative banks/societies",
+              "source_url": "https://nsfdc.nic.in/scheme", "as_of": "2026-09-09" }
+          ] },
+        { "variant_id": "SFB", "key": "channel.sfb", "interest_rate": 15.0,
+          "channel_types": ["SFB"],
+          "citations": [
+            { "field": "interest_rate", "value": "15% via small finance banks",
+              "source_url": "https://nsfdc.nic.in/scheme", "as_of": "2026-09-09" }
+          ] }
+      ],
+      "channel_types": null,
+      "total_period_months": 60,
+      "tenure_includes_moratorium": true,
+      "moratorium_months": 3,
+      "moratorium_months_special": null,
+      "instalment_frequency": "quarterly",
+      "data_tier": "VERIFIED",
+      "citations": [
+        { "field": "project_cost_max", "value": "Project cost up to ₹5.00 lakh",
+          "source_url": "https://nsfdc.nic.in/scheme", "as_of": "2026-09-09" },
+        { "field": "financing_pct", "value": "90% of project cost",
+          "source_url": "https://nsfdc.nic.in/scheme", "as_of": "2026-09-09" },
+        { "field": "loan_max", "value": "Loan max ₹4.50 lakh",
+          "source_url": "https://nsfdc.nic.in/scheme", "as_of": "2026-09-09" },
+        { "field": "total_period_months", "value": "5 years including moratorium",
+          "source_url": "https://nsfdc.nic.in/scheme", "as_of": "2026-09-09" },
+        { "field": "moratorium_months", "value": "3-month moratorium",
+          "source_url": "https://nsfdc.nic.in/scheme", "as_of": "2026-09-09" }
+      ]
+    },
+    {
+      "scheme_id": "NSFDC_ELS",
+      "name_key": "scheme.NSFDC_ELS.name",
+      "purpose": "education",
+      "project_cost_min": 0,
+      "project_cost_max": 4000000,
+      "project_cost_pct_of_fee_max": 90,
+      "financing_pct": 90,
+      "loan_min": 0,
+      "loan_max": 4000000,
+      "interest_rate": 6.5,
+      "channel_variants": null,
+      "channel_types": ["SCA", "PSB", "RRB"],
+      "total_period_months": 144,
+      "tenure_includes_moratorium": false,
+      "moratorium_months": null,
+      "moratorium_derivation": "remaining_course_months + 12",
+      "moratorium_months_special": null,
+      "instalment_frequency": "quarterly",
+      "requires_admission_confirmed": true,
+      "requires_recognised_course": true,
+      "data_tier": "VERIFIED",
+      "citations": [
+        { "field": "project_cost_max", "value": "Up to ₹40 lakh, or 90% of course fee",
+          "source_url": "https://nsfdc.nic.in/scheme", "as_of": "2026-09-09" },
+        { "field": "financing_pct", "value": "90% of course fee",
+          "source_url": "https://nsfdc.nic.in/scheme", "as_of": "2026-09-09" },
+        { "field": "interest_rate", "value": "6.5% to beneficiary",
+          "source_url": "https://nsfdc.nic.in/scheme", "as_of": "2026-09-09" },
+        { "field": "total_period_months", "value": "12 years excluding moratorium",
+          "source_url": "https://nsfdc.nic.in/scheme", "as_of": "2026-09-09" },
+        { "field": "moratorium_derivation", "value": "Course period plus 1 year",
+          "source_url": "https://nsfdc.nic.in/scheme", "as_of": "2026-09-09" }
+      ]
+    }
+  ]
+}

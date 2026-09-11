@@ -1,0 +1,55 @@
+{
+  "documents": [
+    { "code": "CASTE_CERT", "name_key": "document.CASTE_CERT" },
+    { "code": "INCOME_CERT", "name_key": "document.INCOME_CERT" },
+    { "code": "AADHAAR", "name_key": "document.AADHAAR" },
+    { "code": "BANK_PASSBOOK", "name_key": "document.BANK_PASSBOOK" },
+    { "code": "PROJECT_QUOTATION", "name_key": "document.PROJECT_QUOTATION" },
+    { "code": "PHOTO", "name_key": "document.PHOTO" },
+    { "code": "ADMISSION_LETTER", "name_key": "document.ADMISSION_LETTER" },
+    { "code": "FEE_STRUCTURE", "name_key": "document.FEE_STRUCTURE" }
+  ],
+  "checklists": {
+    "NSFDC_MFS": [
+      { "code": "CASTE_CERT", "mandatory": true },
+      { "code": "INCOME_CERT", "mandatory": true },
+      { "code": "AADHAAR", "mandatory": true },
+      { "code": "BANK_PASSBOOK", "mandatory": true },
+      { "code": "PROJECT_QUOTATION", "mandatory": true },
+      { "code": "PHOTO", "mandatory": true }
+    ],
+    "NSFDC_TL": [
+      { "code": "CASTE_CERT", "mandatory": true },
+      { "code": "INCOME_CERT", "mandatory": true },
+      { "code": "AADHAAR", "mandatory": true },
+      { "code": "BANK_PASSBOOK", "mandatory": true },
+      { "code": "PROJECT_QUOTATION", "mandatory": true },
+      { "code": "PHOTO", "mandatory": true }
+    ],
+    "NSFDC_AMY": [
+      { "code": "CASTE_CERT", "mandatory": true },
+      { "code": "INCOME_CERT", "mandatory": true },
+      { "code": "AADHAAR", "mandatory": true },
+      { "code": "BANK_PASSBOOK", "mandatory": true },
+      { "code": "PROJECT_QUOTATION", "mandatory": true },
+      { "code": "PHOTO", "mandatory": true }
+    ],
+    "NSFDC_UNY": [
+      { "code": "CASTE_CERT", "mandatory": true },
+      { "code": "INCOME_CERT", "mandatory": true },
+      { "code": "AADHAAR", "mandatory": true },
+      { "code": "BANK_PASSBOOK", "mandatory": true },
+      { "code": "PROJECT_QUOTATION", "mandatory": true },
+      { "code": "PHOTO", "mandatory": true }
+    ],
+    "NSFDC_ELS": [
+      { "code": "CASTE_CERT", "mandatory": true },
+      { "code": "INCOME_CERT", "mandatory": true },
+      { "code": "AADHAAR", "mandatory": true },
+      { "code": "BANK_PASSBOOK", "mandatory": true },
+      { "code": "ADMISSION_LETTER", "mandatory": true },
+      { "code": "FEE_STRUCTURE", "mandatory": true },
+      { "code": "PHOTO", "mandatory": true }
+    ]
+  }
+}
