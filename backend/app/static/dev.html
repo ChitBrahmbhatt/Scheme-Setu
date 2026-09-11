@@ -1,0 +1,576 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Project Sarathi — Backend Dev Console</title>
+<style>
+  body { font-family: system-ui, sans-serif; margin: 0; padding: 0; background: #f4f4f4; color: #111; }
+  header { background: #222; color: #fff; padding: 10px 16px; }
+  header h1 { font-size: 16px; margin: 0; }
+  header p { margin: 4px 0 0; font-size: 12px; color: #ccc; }
+  nav { display: flex; flex-wrap: wrap; background: #ddd; border-bottom: 1px solid #999; }
+  nav button { padding: 8px 14px; border: none; background: none; cursor: pointer; font-size: 13px; border-right: 1px solid #bbb; }
+  nav button.active { background: #fff; font-weight: bold; }
+  section.panel { display: none; padding: 14px; max-width: 1100px; }
+  section.panel.active { display: block; }
+  fieldset { margin-bottom: 12px; border: 1px solid #bbb; }
+  legend { font-weight: bold; font-size: 12px; }
+  label { display: inline-block; min-width: 170px; font-size: 12px; margin: 3px 0; }
+  input[type=text], input[type=number], select, textarea { font-size: 12px; padding: 2px 4px; width: 220px; }
+  .row { margin: 4px 0; }
+  .presets button { margin: 2px; font-size: 11px; padding: 4px 6px; }
+  .send-btn { background: #2a6; color: #fff; font-weight: bold; padding: 6px 14px; border: none; cursor: pointer; }
+  .clear-btn { padding: 6px 10px; margin-left: 6px; }
+  .status { font-weight: bold; padding: 4px 8px; display: inline-block; margin: 6px 0; }
+  .status.ok { background: #cfc; }
+  .status.err { background: #fcc; }
+  pre.json { background: #111; color: #0f0; padding: 10px; overflow: auto; max-height: 480px; font-size: 12px; }
+  .g4-check { font-family: monospace; font-size: 12px; padding: 6px; margin-top: 6px; }
+  .g4-check.match { background: #cfc; }
+  .g4-check.mismatch { background: #fcc; }
+  .members-table td, .members-table th { font-size: 11px; padding: 2px 6px; }
+  small.hint { color: #666; display: block; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Project Sarathi — Backend Dev Console</h1>
+  <p>Development/QA tool only. Not the production frontend. Calls the real FastAPI backend — no logic duplicated here.</p>
+</header>
+
+<nav id="tabs">
+  <button data-tab="health" class="active">Health</button>
+  <button data-tab="recommend">Recommend</button>
+  <button data-tab="calculate">Calculate</button>
+  <button data-tab="partners">Partners</button>
+  <button data-tab="reference">Reference Data</button>
+</nav>
+
+<!-- ===================== HEALTH ===================== -->
+<section id="panel-health" class="panel active">
+  <h2>GET /api/v1/health</h2>
+  <button class="send-btn" onclick="sendHealth()">Send Request</button>
+  <button class="clear-btn" onclick="clearResponse('health')">Clear</button>
+  <div id="health-status"></div>
+  <pre id="health-response" class="json"></pre>
+</section>
+
+<!-- ===================== RECOMMEND ===================== -->
+<section id="panel-recommend" class="panel">
+  <h2>POST /api/v1/recommend</h2>
+
+  <div class="presets">
+    <strong>Presets:</strong>
+    <button onclick="presetRecommend('mfs_120000')">1. MFS ₹1,20,000</button>
+    <button onclick="presetRecommend('overlap_140000')">2. ₹1,40,000 overlap</button>
+    <button onclick="presetRecommend('over_140001')">3. ₹1,40,001</button>
+    <button onclick="presetRecommend('uny_500000')">4. ₹5,00,000</button>
+    <button onclick="presetRecommend('above_50l')">5. &gt;₹50L</button>
+    <button onclick="presetRecommend('not_sc')">6. NOT_SC</button>
+    <button onclick="presetRecommend('income_above_5l')">7. income &gt;₹5L</button>
+    <button onclick="presetRecommend('education_eligible')">8. Education eligible</button>
+    <button onclick="presetRecommend('education_no_admission')">9. Education, no admission</button>
+    <button onclick="presetRecommend('partnership_blocker')">10. Partnership member blocker</button>
+  </div>
+
+  <fieldset>
+    <legend>Profile</legend>
+    <div class="row">
+      <label>Locale</label>
+      <select id="r_locale"><option value="en">en</option><option value="hi">hi</option></select>
+    </div>
+    <div class="row">
+      <label>Is SC?</label>
+      <input type="checkbox" id="r_is_sc" checked>
+    </div>
+    <div class="row">
+      <label>Annual family income (₹)</label>
+      <input type="number" id="r_income" value="240000">
+    </div>
+    <div class="row">
+      <label>Applicant type</label>
+      <select id="r_applicant_type" onchange="toggleMembers()">
+        <option value="individual">individual</option>
+        <option value="partnership">partnership</option>
+        <option value="cooperative_society">cooperative_society</option>
+      </select>
+    </div>
+    <div class="row" id="members-block" style="display:none">
+      <label>Members</label>
+      <table class="members-table" id="members-table">
+        <tr><th>is_sc</th><th>income</th></tr>
+        <tr><td><input type="checkbox" class="m_is_sc" checked></td><td><input type="number" class="m_income" value="100000"></td></tr>
+        <tr><td><input type="checkbox" class="m_is_sc"></td><td><input type="number" class="m_income" value="100000"></td></tr>
+      </table>
+      <button type="button" onclick="addMemberRow()">+ add member row</button>
+    </div>
+    <div class="row">
+      <label>Purpose</label>
+      <select id="r_purpose" onchange="togglePurpose()">
+        <option value="business">business</option>
+        <option value="education">education</option>
+      </select>
+    </div>
+
+    <div id="business-fields">
+      <div class="row">
+        <label>Activity code</label>
+        <input type="text" id="r_activity_code" value="TAILORING">
+      </div>
+      <div class="row">
+        <label>Project cost (₹)</label>
+        <input type="number" id="r_project_cost" value="120000">
+      </div>
+    </div>
+
+    <div id="education-fields" style="display:none">
+      <div class="row">
+        <label>Course code</label>
+        <input type="text" id="r_course_code" value="BTECH">
+      </div>
+      <div class="row">
+        <label>Study location</label>
+        <select id="r_study_location"><option value="india">india</option><option value="abroad">abroad</option></select>
+      </div>
+      <div class="row">
+        <label>Total course fee (₹)</label>
+        <input type="number" id="r_fee" value="800000">
+      </div>
+      <div class="row">
+        <label>Remaining course months</label>
+        <input type="number" id="r_remaining_months" value="48">
+      </div>
+      <div class="row">
+        <label>Admission confirmed?</label>
+        <input type="checkbox" id="r_admission_confirmed" checked>
+      </div>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend>Location (optional — only affects partner lookup downstream)</legend>
+    <div class="row"><label>lat</label><input type="text" id="r_lat" value="23.0225"></div>
+    <div class="row"><label>lng</label><input type="text" id="r_lng" value="72.5714"></div>
+    <div class="row"><label>state_code</label><input type="text" id="r_state_code" value="GJ"></div>
+    <div class="row"><label>district</label><input type="text" id="r_district" value="Ahmedabad"></div>
+  </fieldset>
+
+  <button class="send-btn" onclick="sendRecommend()">Send Request</button>
+  <button class="clear-btn" onclick="clearResponse('recommend')">Clear</button>
+
+  <h3>Request JSON sent</h3>
+  <pre id="recommend-request" class="json"></pre>
+  <div id="recommend-status"></div>
+  <h3>Response</h3>
+  <pre id="recommend-response" class="json"></pre>
+</section>
+
+<!-- ===================== CALCULATE ===================== -->
+<section id="panel-calculate" class="panel">
+  <h2>POST /api/v1/calculate</h2>
+
+  <div class="presets">
+    <strong>Golden case presets:</strong>
+    <button onclick="presetCalculate('G1')">G1</button>
+    <button onclick="presetCalculate('G2')">G2</button>
+    <button onclick="presetCalculate('G3')">G3</button>
+    <button onclick="presetCalculate('G4')">G4</button>
+    <button onclick="presetCalculate('G5')">G5</button>
+    <button onclick="presetCalculate('G6')">G6</button>
+    <button onclick="presetCalculate('G10')">G10</button>
+  </div>
+  <small class="hint">G4 expected: instalment ₹26,527 · total_outgo ₹5,04,013 · total_interest ₹1,44,013</small>
+
+  <fieldset>
+    <div class="row"><label>scheme_id</label><input type="text" id="c_scheme_id" value="NSFDC_MFS"></div>
+    <div class="row"><label>channel_variant</label><input type="text" id="c_channel_variant" placeholder="COOP / SFB / (blank)"></div>
+    <div class="row"><label>sanctioned_amount (₹)</label><input type="number" id="c_sanctioned" value="108000"></div>
+    <div class="row"><label>total_period_months</label><input type="number" id="c_total_months" value="36"></div>
+    <div class="row"><label>moratorium_months</label><input type="number" id="c_moratorium" value="3"></div>
+    <div class="row"><label>include_schedule?</label><input type="checkbox" id="c_include_schedule" checked></div>
+  </fieldset>
+
+  <button class="send-btn" onclick="sendCalculate()">Send Request</button>
+  <button class="clear-btn" onclick="clearResponse('calculate')">Clear</button>
+
+  <div id="calculate-status"></div>
+  <div id="g4-check"></div>
+  <h3>Response</h3>
+  <pre id="calculate-response" class="json"></pre>
+</section>
+
+<!-- ===================== PARTNERS ===================== -->
+<section id="panel-partners" class="panel">
+  <h2>GET /api/v1/partners</h2>
+
+  <div class="presets">
+    <button onclick="presetPartners()">Ahmedabad MFS preset</button>
+  </div>
+
+  <fieldset>
+    <div class="row"><label>scheme_id</label><input type="text" id="p_scheme_id" value="NSFDC_MFS"></div>
+    <div class="row"><label>lat</label><input type="text" id="p_lat" value="23.0225"></div>
+    <div class="row"><label>lng</label><input type="text" id="p_lng" value="72.5714"></div>
+    <div class="row"><label>state_code</label><input type="text" id="p_state_code"></div>
+    <div class="row"><label>district</label><input type="text" id="p_district"></div>
+    <div class="row"><label>radius_km</label><input type="number" id="p_radius" value="25"></div>
+    <div class="row"><label>limit</label><input type="number" id="p_limit" value="10"></div>
+  </fieldset>
+
+  <button class="send-btn" onclick="sendPartners()">Send Request</button>
+  <button class="clear-btn" onclick="clearResponse('partners')">Clear</button>
+
+  <div id="partners-status"></div>
+  <div id="partners-summary"></div>
+  <h3>Response</h3>
+  <pre id="partners-response" class="json"></pre>
+</section>
+
+<!-- ===================== REFERENCE DATA ===================== -->
+<section id="panel-reference" class="panel">
+  <h2>Reference data</h2>
+
+  <fieldset>
+    <legend>GET /api/v1/schemes</legend>
+    <button class="send-btn" onclick="sendRef('/api/v1/schemes')">Send</button>
+  </fieldset>
+
+  <fieldset>
+    <legend>GET /api/v1/schemes/{scheme_id}</legend>
+    <input type="text" id="ref_scheme_id" value="NSFDC_MFS">
+    <button class="send-btn" onclick="sendRef('/api/v1/schemes/' + encodeURIComponent(document.getElementById('ref_scheme_id').value))">Send</button>
+  </fieldset>
+
+  <fieldset>
+    <legend>GET /api/v1/meta/activities?q=...</legend>
+    <input type="text" id="ref_activity_q" placeholder="e.g. tail (leave blank for all)">
+    <button class="send-btn" onclick="sendRef('/api/v1/meta/activities' + (document.getElementById('ref_activity_q').value ? ('?q=' + encodeURIComponent(document.getElementById('ref_activity_q').value)) : ''))">Send</button>
+  </fieldset>
+
+  <fieldset>
+    <legend>GET /api/v1/meta/courses</legend>
+    <button class="send-btn" onclick="sendRef('/api/v1/meta/courses')">Send</button>
+  </fieldset>
+
+  <fieldset>
+    <legend>GET /api/v1/meta/documents?scheme_id=...</legend>
+    <input type="text" id="ref_doc_scheme_id" value="NSFDC_MFS">
+    <button class="send-btn" onclick="sendRef('/api/v1/meta/documents?scheme_id=' + encodeURIComponent(document.getElementById('ref_doc_scheme_id').value))">Send</button>
+  </fieldset>
+
+  <div id="reference-status"></div>
+  <h3>Response</h3>
+  <pre id="reference-response" class="json"></pre>
+</section>
+
+<script>
+// ---------- tab switching ----------
+document.querySelectorAll('#tabs button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('#tabs button').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('section.panel').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('panel-' + btn.dataset.tab).classList.add('active');
+  });
+});
+
+// ---------- generic request helper ----------
+async function apiRequest(method, path, body) {
+  const opts = { method, headers: {} };
+  if (body !== undefined) {
+    opts.headers['Content-Type'] = 'application/json';
+    opts.body = JSON.stringify(body);
+  }
+  let res, json;
+  try {
+    res = await fetch(path, opts);
+    json = await res.json();
+  } catch (e) {
+    return { status: 0, ok: false, json: { error: { code: 'NETWORK_ERROR', message: String(e), field: null } } };
+  }
+  return { status: res.status, ok: res.ok, json };
+}
+
+function renderStatus(elId, status, ok) {
+  const el = document.getElementById(elId);
+  el.innerHTML = '<span class="status ' + (ok ? 'ok' : 'err') + '">HTTP ' + status + '</span>';
+}
+
+function renderJson(elId, obj) {
+  document.getElementById(elId).textContent = JSON.stringify(obj, null, 2);
+}
+
+function clearResponse(name) {
+  const statusEl = document.getElementById(name + '-status');
+  const respEl = document.getElementById(name + '-response');
+  if (statusEl) statusEl.innerHTML = '';
+  if (respEl) respEl.textContent = '';
+  if (name === 'recommend') document.getElementById('recommend-request').textContent = '';
+  if (name === 'calculate') document.getElementById('g4-check').innerHTML = '';
+  if (name === 'partners') document.getElementById('partners-summary').innerHTML = '';
+}
+
+// ---------- HEALTH ----------
+async function sendHealth() {
+  const r = await apiRequest('GET', '/api/v1/health');
+  renderStatus('health-status', r.status, r.ok);
+  renderJson('health-response', r.json);
+}
+
+// ---------- RECOMMEND ----------
+function toggleMembers() {
+  const type = document.getElementById('r_applicant_type').value;
+  document.getElementById('members-block').style.display = (type === 'individual') ? 'none' : 'block';
+}
+
+function togglePurpose() {
+  const purpose = document.getElementById('r_purpose').value;
+  document.getElementById('business-fields').style.display = (purpose === 'business') ? 'block' : 'none';
+  document.getElementById('education-fields').style.display = (purpose === 'education') ? 'block' : 'none';
+}
+
+function addMemberRow() {
+  const table = document.getElementById('members-table');
+  const row = document.createElement('tr');
+  row.innerHTML = '<td><input type="checkbox" class="m_is_sc" checked></td>' +
+                  '<td><input type="number" class="m_income" value="100000"></td>';
+  table.appendChild(row);
+}
+
+function collectMembers() {
+  const rows = document.querySelectorAll('#members-table tr');
+  const members = [];
+  rows.forEach(row => {
+    const cb = row.querySelector('.m_is_sc');
+    const inc = row.querySelector('.m_income');
+    if (cb && inc) {
+      members.push({ is_sc: cb.checked, annual_family_income: Number(inc.value) });
+    }
+  });
+  return members;
+}
+
+function buildRecommendRequest() {
+  const purpose = document.getElementById('r_purpose').value;
+  const applicantType = document.getElementById('r_applicant_type').value;
+
+  const profile = {
+    applicant_type: applicantType,
+    is_sc: document.getElementById('r_is_sc').checked,
+    annual_family_income: Number(document.getElementById('r_income').value),
+    purpose: purpose,
+  };
+
+  if (purpose === 'business') {
+    profile.activity_code = document.getElementById('r_activity_code').value;
+    profile.project_cost = Number(document.getElementById('r_project_cost').value);
+  } else {
+    profile.education = {
+      course_code: document.getElementById('r_course_code').value,
+      study_location: document.getElementById('r_study_location').value,
+      total_course_fee: Number(document.getElementById('r_fee').value),
+      remaining_course_months: Number(document.getElementById('r_remaining_months').value),
+      admission_confirmed: document.getElementById('r_admission_confirmed').checked,
+    };
+  }
+
+  if (applicantType !== 'individual') {
+    profile.members = collectMembers();
+  }
+
+  const lat = document.getElementById('r_lat').value;
+  const lng = document.getElementById('r_lng').value;
+  const stateCode = document.getElementById('r_state_code').value;
+  const district = document.getElementById('r_district').value;
+  if (lat) profile.lat = Number(lat);
+  if (lng) profile.lng = Number(lng);
+  if (stateCode) profile.state_code = stateCode;
+  if (district) profile.district = district;
+
+  return { locale: document.getElementById('r_locale').value, profile };
+}
+
+async function sendRecommend() {
+  const req = buildRecommendRequest();
+  renderJson('recommend-request', req);
+  const r = await apiRequest('POST', '/api/v1/recommend', req);
+  renderStatus('recommend-status', r.status, r.ok);
+  renderJson('recommend-response', r.json);
+}
+
+function presetRecommend(name) {
+  // reset to sane defaults first
+  document.getElementById('r_is_sc').checked = true;
+  document.getElementById('r_income').value = 240000;
+  document.getElementById('r_applicant_type').value = 'individual';
+  document.getElementById('r_purpose').value = 'business';
+  document.getElementById('r_activity_code').value = 'TAILORING';
+  document.getElementById('r_project_cost').value = 120000;
+  toggleMembers();
+  togglePurpose();
+
+  if (name === 'mfs_120000') {
+    // defaults already match
+  } else if (name === 'overlap_140000') {
+    document.getElementById('r_project_cost').value = 140000;
+  } else if (name === 'over_140001') {
+    document.getElementById('r_project_cost').value = 140001;
+  } else if (name === 'uny_500000') {
+    document.getElementById('r_project_cost').value = 500000;
+  } else if (name === 'above_50l') {
+    document.getElementById('r_project_cost').value = 5000001;
+  } else if (name === 'not_sc') {
+    document.getElementById('r_is_sc').checked = false;
+  } else if (name === 'income_above_5l') {
+    document.getElementById('r_income').value = 650000;
+  } else if (name === 'education_eligible') {
+    document.getElementById('r_purpose').value = 'education';
+    togglePurpose();
+    document.getElementById('r_course_code').value = 'BTECH';
+    document.getElementById('r_fee').value = 800000;
+    document.getElementById('r_remaining_months').value = 48;
+    document.getElementById('r_admission_confirmed').checked = true;
+  } else if (name === 'education_no_admission') {
+    document.getElementById('r_purpose').value = 'education';
+    togglePurpose();
+    document.getElementById('r_course_code').value = 'BTECH';
+    document.getElementById('r_fee').value = 800000;
+    document.getElementById('r_remaining_months').value = 48;
+    document.getElementById('r_admission_confirmed').checked = false;
+  } else if (name === 'partnership_blocker') {
+    document.getElementById('r_applicant_type').value = 'partnership';
+    toggleMembers();
+    const rows = document.querySelectorAll('#members-table tr');
+    rows[1].querySelector('.m_is_sc').checked = true;
+    rows[1].querySelector('.m_income').value = 100000;
+    rows[2].querySelector('.m_is_sc').checked = false;
+    rows[2].querySelector('.m_income').value = 100000;
+  }
+  sendRecommend();
+}
+
+// ---------- CALCULATE ----------
+const CALC_PRESETS = {
+  G1: { scheme_id: 'NSFDC_MFS', channel_variant: '', sanctioned: 108000, total_months: 36, mor: 3 },
+  G2: { scheme_id: 'NSFDC_AMY', channel_variant: '', sanctioned: 108000, total_months: 36, mor: 3 },
+  G3: { scheme_id: 'NSFDC_TL', channel_variant: '', sanctioned: 900000, total_months: 84, mor: 6 },
+  G4: { scheme_id: 'NSFDC_UNY', channel_variant: 'COOP', sanctioned: 360000, total_months: 60, mor: 3 },
+  G5: { scheme_id: 'NSFDC_TL', channel_variant: '', sanctioned: 360000, total_months: 84, mor: 6 },
+  G6: { scheme_id: 'NSFDC_ELS', channel_variant: '', sanctioned: 720000, total_months: 144, mor: 60 },
+  G10: { scheme_id: 'NSFDC_TL', channel_variant: '', sanctioned: 270000, total_months: 84, mor: 12 },
+};
+
+const G4_EXPECTED = { instalment: 26527, total_outgo: 504013, total_interest: 144013 };
+
+function presetCalculate(key) {
+  const p = CALC_PRESETS[key];
+  document.getElementById('c_scheme_id').value = p.scheme_id;
+  document.getElementById('c_channel_variant').value = p.channel_variant;
+  document.getElementById('c_sanctioned').value = p.sanctioned;
+  document.getElementById('c_total_months').value = p.total_months;
+  document.getElementById('c_moratorium').value = p.mor;
+  document.getElementById('c_include_schedule').checked = true;
+  sendCalculate(key);
+}
+
+async function sendCalculate(presetKey) {
+  const variant = document.getElementById('c_channel_variant').value.trim();
+  const req = {
+    scheme_id: document.getElementById('c_scheme_id').value,
+    channel_variant: variant ? variant : null,
+    sanctioned_amount: Number(document.getElementById('c_sanctioned').value),
+    total_period_months: Number(document.getElementById('c_total_months').value),
+    moratorium_months: Number(document.getElementById('c_moratorium').value),
+    include_schedule: document.getElementById('c_include_schedule').checked,
+  };
+  const r = await apiRequest('POST', '/api/v1/calculate', req);
+  renderStatus('calculate-status', r.status, r.ok);
+  renderJson('calculate-response', r.json);
+
+  const g4El = document.getElementById('g4-check');
+  if (presetKey === 'G4' && r.ok) {
+    const actual = { instalment: r.json.instalment, total_outgo: r.json.total_outgo, total_interest: r.json.total_interest };
+    const match = actual.instalment === G4_EXPECTED.instalment &&
+                  actual.total_outgo === G4_EXPECTED.total_outgo &&
+                  actual.total_interest === G4_EXPECTED.total_interest;
+    g4El.className = 'g4-check ' + (match ? 'match' : 'mismatch');
+    g4El.textContent = 'G4 check — expected instalment=' + G4_EXPECTED.instalment +
+      ' total_outgo=' + G4_EXPECTED.total_outgo + ' total_interest=' + G4_EXPECTED.total_interest +
+      ' | actual instalment=' + actual.instalment + ' total_outgo=' + actual.total_outgo +
+      ' total_interest=' + actual.total_interest + ' -> ' + (match ? 'MATCH' : 'MISMATCH');
+  } else {
+    g4El.textContent = '';
+    g4El.className = 'g4-check';
+  }
+}
+
+// ---------- PARTNERS ----------
+function presetPartners() {
+  document.getElementById('p_scheme_id').value = 'NSFDC_MFS';
+  document.getElementById('p_lat').value = '23.0225';
+  document.getElementById('p_lng').value = '72.5714';
+  document.getElementById('p_state_code').value = '';
+  document.getElementById('p_district').value = '';
+  document.getElementById('p_radius').value = 25;
+  document.getElementById('p_limit').value = 10;
+  sendPartners();
+}
+
+async function sendPartners() {
+  const params = new URLSearchParams();
+  params.set('scheme_id', document.getElementById('p_scheme_id').value);
+  const lat = document.getElementById('p_lat').value;
+  const lng = document.getElementById('p_lng').value;
+  const stateCode = document.getElementById('p_state_code').value;
+  const district = document.getElementById('p_district').value;
+  const radius = document.getElementById('p_radius').value;
+  const limit = document.getElementById('p_limit').value;
+  if (lat) params.set('lat', lat);
+  if (lng) params.set('lng', lng);
+  if (stateCode) params.set('state_code', stateCode);
+  if (district) params.set('district', district);
+  if (radius) params.set('radius_km', radius);
+  if (limit) params.set('limit', limit);
+
+  const r = await apiRequest('GET', '/api/v1/partners?' + params.toString());
+  renderStatus('partners-status', r.status, r.ok);
+  renderJson('partners-response', r.json);
+
+  const summaryEl = document.getElementById('partners-summary');
+  if (r.ok) {
+    const partners = r.json.partners || [];
+    const excluded = r.json.excluded || { count: 0, items: [] };
+    let html = '<p><strong>' + r.json.data_tier + '</strong> — ' + r.json.disclaimer_key + '</p>';
+    html += '<p>' + partners.length + ' shown, ' + excluded.count + ' excluded</p><ul>';
+    partners.forEach(p => {
+      html += '<li>' + p.partner_id + ' — ' + p.routing_status + ' — ' + (p.distance_km ?? 'n/a') + ' km</li>';
+    });
+    html += '</ul>';
+    if (excluded.count > 0) {
+      html += '<p><em>Excluded:</em></p><ul>';
+      excluded.items.forEach(p => {
+        const reasons = (p.routing_reasons || []).map(r => r.code).join(', ');
+        html += '<li>' + p.partner_id + ' — ' + p.routing_status + ' — ' + (p.distance_km ?? 'n/a') + ' km — ' + reasons + '</li>';
+      });
+      html += '</ul>';
+    }
+    summaryEl.innerHTML = html;
+  } else {
+    summaryEl.innerHTML = '';
+  }
+}
+
+// ---------- REFERENCE DATA ----------
+async function sendRef(path) {
+  const r = await apiRequest('GET', path);
+  renderStatus('reference-status', r.status, r.ok);
+  renderJson('reference-response', r.json);
+}
+
+toggleMembers();
+togglePurpose();
+</script>
+
+</body>
+</html>
